@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="是不是一直搞不清楚单元(Unit)测试，功能(Functional)测试和集成(Integration)测试的区别？">
+<meta name="keywords" content="translations">
+<meta property="og:type" content="article">
+<meta property="og:title" content="［译］JavaScript 测试︰ 单元 vs 功能 vs 集成测试">
+<meta property="og:url" content="http://wildflame.me/javascript-testing-unit-functional-integration/index.html">
+<meta property="og:site_name" content="wildflame">
+<meta property="og:description" content="是不是一直搞不清楚单元(Unit)测试，功能(Functional)测试和集成(Integration)测试的区别？">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2016/04/1461566883dev-console-animated-small.gif">
+<meta property="og:updated_time" content="2018-06-09T12:54:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="［译］JavaScript 测试︰ 单元 vs 功能 vs 集成测试">
+<meta name="twitter:description" content="是不是一直搞不清楚单元(Unit)测试，功能(Functional)测试和集成(Integration)测试的区别？">
+<meta name="twitter:image" content="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2016/04/1461566883dev-console-animated-small.gif">
+
+
+
+
+
+
+  <link rel="canonical" href="http://wildflame.me/javascript-testing-unit-functional-integration/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>［译］JavaScript 测试︰ 单元 vs 功能 vs 集成测试 | wildflame</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41378161-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-41378161-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wildflame</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wildflame.me/javascript-testing-unit-functional-integration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="David Lin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wildflame">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">［译］JavaScript 测试︰ 单元 vs 功能 vs 集成测试
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-12-06 08:00:00" itemprop="dateCreated datePublished" datetime="2016-12-06T08:00:00+08:00">2016-12-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-06-09 20:54:53" itemprop="dateModified" datetime="2018-06-09T20:54:53+08:00">2018-06-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/translations/" itemprop="url" rel="index"><span itemprop="name">translations</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/javascript-testing-unit-functional-integration/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="javascript-testing-unit-functional-integration/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">是不是一直搞不清楚单元(Unit)测试，功能(Functional)测试和集成(Integration)测试的区别？</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<ul>
+<li>原文地址：<a href="http://www.sitepoint.com/javascript-testing-unit-functional-integration" target="_blank" rel="noopener">JavaScript Testing: Unit vs Functional vs Integration Tests</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>原文作者：<a href="https://www.sitepoint.com/author/eelliott/" target="_blank" rel="noopener">Eric Elliott</a></li>
+<li>译文出自：<a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a></li>
+<li>译者：<a href="http://github.com/wild-flame" target="_blank" rel="noopener">wild-flame</a></li>
+<li>校对者：<a href="https://github.com/marcmoore" target="_blank" rel="noopener">marcmoore</a>、<a href="https://github.com/Tina92" target="_blank" rel="noopener">Tina92</a></li>
+</ul>
+<p>单元测试、集成测试、功能测试这些自动化测试方法，是项目持续部署的基础。作为一种研发方式，它能帮助你在短时间内安全的发布新特性，而不用等上几个月甚至几年。</p>
+<p>自动测试通过捕捉更多的错误，增强了软件到达用户之前的稳定性。就好比是一张防护网一样，使开发者们在做更改的时候不必担心引发未知的错误。</p>
+<h2>忽略测试的代价</h2>
+<p>与直觉相反，维护一个高质量的测试套件能够极大地提高开发人员的效率，因为它使得开发人员能够立即发现开发中的错误。反过来说，如果没有这些套件，终端用户会遇到更多的 Bug，从而导致需要在用户服务，质量保证和错误报告上面投入更多的资源。</p>
+<p>测试驱动开发（TDD）在前期需要更多的时间，但是一旦 Bug 到了用户那里，你会付出更多的代价：</p>
+<ul>
+<li>它们会影响用户体验，而这会导致你销量下降，用户减少，甚至赶走潜在的客户。</li>
+<li>所有的错误报告都必须被 QA 或者开发者亲自验证。</li>
+<li>修补这些 Bug 会耗费你大量的时间，因为它导致你必须停下手头的工作。粗略估计每一个 Bug 都将浪费你 20 分钟的时间，而这还没有算你修补它们的时间。</li>
+<li>有时候，诊断这些 Bug 的人并不是开发它们的人，这导致了开发人员对代码的不熟悉。</li>
+<li>机会成本：开发团队必须等到 Bug 被修补以后，才能继续按照计划开发。</li>
+</ul>
+<p>在生产环境里的 Bug 使你付出的代价往往要数倍于在自动化测试时发现的 Bug。换句话说，如果你计算投资与回报的话，测试驱动开发（TDD）将具有压倒性的优势。</p>
+<h2>不同类型的测试</h2>
+<p>你需要了解的第一件事情就是，每一种测试都有它自己的作用。他们都在软件的持续发布中起了扮演着重要的角色。</p>
+<p>前阵子，我为一个野心勃勃的项目做了咨询，这个团队费尽心机的希望搭建一个可靠的测试套件。但因其难以使用和理解，很少派上用场，更无法继续维护。</p>
+<p>我观察到的其中一个问题就是，现有套件混淆了单元，功能和集成测试。以至于不同类型的测试之间没有明显的区别。</p>
+<p>其结果是现有测试套件不适合任何一个测试套件。</p>
+<h2>在持续发布中这些测试所扮演的角色</h2>
+<p>每种类型的测试可以发挥其独特的作用。你不用在单元测试、功能测试和集成测试中做选择。因为你会使用全部的这三种测试，并确保可以独立的运行这三种类型的测试套件。</p>
+<p>大多数应用程序都需要单元测试和功能测试，而许多复杂的应用程序在此基础上，还需要集成测试。</p>
+<ul>
+<li><strong>单元测试</strong> 用来确保每个组件正常工作 —— 测试组件的 API 。</li>
+<li><strong>集成测试</strong> 用来确保不同组件互相合作 —— 测试组件的 API, UI, 或者边缘情况（比如数据库I/O，登陆等等）。</li>
+<li><strong>功能测试</strong> 用来确保整个应用会按照用户期望的那样运行 —— 主要测试界面</li>
+</ul>
+<p>你应该把单元，集成和功能测试互相隔离开来，这样你就可以在开发时分别的运行它们。在持续的集成过程中，测试一般会出现在下面三个阶段。</p>
+<ul>
+<li><strong>开发阶段</strong>，主要是程序员反馈。这时单元测试很有用。</li>
+<li><strong>在中间阶段</strong>，主要是能够在发现问题时立刻停下来。这时各种测试都很有用。</li>
+<li><strong>在生产环境</strong>，主要是运行功能测试套件中一个叫做「冒烟测试」的子集，确保部署的时候没有弄坏什么东西。</li>
+</ul>
+<p>如果你问我该使用那个测试？<strong>所有的。</strong></p>
+<p>为了了解如何在您的软件开发过程选择不同测试，你需要了解每种测试所扮演的角色，那些测试大致可分为三大类︰</p>
+<ul>
+<li>用户体验测试（针对最终用户）</li>
+<li>开发 API 测试（针对开发人员）</li>
+<li>基础设施测试（负载测试、 网络集成测试等…）</li>
+</ul>
+<p>用户体验测试从用户的角度来测试，使用实际的用户界面，通常是在目标平台或设备上。</p>
+<p>API 测试则从开发者的角度来做测试。我说的可不是 Http API。我说的是一个 Unit 的 API，而一个 Unit 指开发者创建出来用来和其他模块或者类交互的一整个部分。</p>
+<p>单元测试：实时的开发者反馈</p>
+<p>单元测试是确保单个组件的工作彼此隔绝。一个单元，通常是一个模块、 功能等等…</p>
+<p>比方说，您的应用程序可能需要路由一个 URL 到路由处理程序。一个单元测试就用来确保此 URL 解析器正确的解析 URL。而另一个单元测试可能确保路由器为给定的 URL 调用了正确的处理程序。</p>
+<p>然而，如果你想测试在接收到特定的 post 请求以后，数据库会添加对应的记录，那么这就是集成测试，而不是单元测试。</p>
+<p>单元测试常常被用来开发者的反馈机制。比方说，我在工作时，会在我每一次更改之后运行 lint 和单元测试，在 console 里检测运行的结果。</p>
+<p><img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2016/04/1461566883dev-console-animated-small.gif" alt="Running tests on file change"></p>
+<p>为了实现这个目的，单元测试必须很快，也就是说，在单元测试里，一切异步的操作都应该被避免。</p>
+<p>自集成测试和功能测试非常频繁地依赖于网络连接和文件 I/O，他们会显著减慢测试的速度。当有很多的测试的时候，可以运行的时间可以从毫秒数到几分钟。对于非常大的应用程序，运行完整的测试可以用一个多小时。</p>
+<p>一个好的单元测试应该包括以下三点：</p>
+<ul>
+<li>非常简单</li>
+<li>速度很快 - 以迅雷不及掩耳之势</li>
+<li>生成一个「好的报告」</li>
+</ul>
+<p>什么是「好的报告」呢？</p>
+<p>「好的报告」就是能够一眼就告诉你，</p>
+<ol>
+<li>什么组件正在被测试</li>
+<li>你期望什么行为</li>
+<li>实际是什么结果</li>
+<li>你期望什么结果</li>
+<li>如何重现</li>
+</ol>
+<p>前四个问题应在故障报告中清晰可见，而最后的那个问题应该从测试的执行很清楚的中找到。当然，在一份不合格的报告中有一些 assertion 的类型是不能回答所有问题的,但大部分的问题 ‘equal’、 ’same’，或者 'deepEqual’ 都应该可以做到。事实上，如果那些断言是现有断言库里的唯一断言，现存的大多数测试套件可能会更好。大道至简！</p>
+<p>下面这个是我在实际项目中使用 <a href="https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4" target="_blank" rel="noopener">Tape</a> 的做单元测试的例子：</p>
+<pre><code>// Ensure that the initial state of the &quot;hello&quot; reducer gets set correctly
+import test from 'tape';
+import hello from 'store/reducers/hello';
+
+test('...initial', assert =&gt; {
+  const message = `should set { mode: 'display', subject: 'world' }`;
+
+  const expected = {
+    mode: 'display',
+    subject: 'World'
+  };
+
+  const actual = hello();
+
+  assert.deepEqual(actual, expected, message);
+  assert.end();
+});
+
+// Asynchronous test to ensure that a password hash is created as expected.
+import test from 'tape',
+import credential from '../credential';
+
+test('hash', function (t) {
+  // Create a password record
+  const pw = credential();
+
+  // Asynchronously create the password hash
+  pw.hash('foo', function (err, hash) {
+    t.error(err, 'should not throw an error');
+
+    t.ok(JSON.parse(hash).hash,
+      'should be a json string representing the hash.');
+
+    t.end();
+  });
+});
+</code></pre>
+<h2>集成测试</h2>
+<p>集成测试确保各组件一起正常工作。例如，节点路由处理程序可能需要一个记录器（logger）作为依赖。集成测试可测试路由和连接被正确的记录。</p>
+<p>这里有两个组件同时被测试了：</p>
+<ol>
+<li>路由处理器（Route handler）</li>
+<li>记录器（Logger）</li>
+</ol>
+<p>如果我们对 logger 做单元测试，这些测试是不会调用到 route handler，或者说根本就不知道还有个 handler。</p>
+<p>如果我们对路由处理器做单元测试。我们不会管 Logger，或者与它有任何关系。我们会对路由做假的请求来测试。</p>
+<p>Route handler 作为一种工厂函数通过依赖注入将 logger 注入进去。我们来看一段批注：</p>
+<pre><code>createRoute({ logger: LoggerInstance }) =&gt; RouteHandler
+</code></pre>
+<p>让我们看看如何测试它：</p>
+<pre><code>import test from 'tape';
+
+import createLog from 'shared/logger';
+import routeRoute from 'routes/my-route';
+
+test('logger/route integration', assert =&gt; {
+  const msg = 'Logger logs router calls to memory';
+
+  const logMsg = 'hello';
+  const url = `http://127.0.0.1/msg/${ logMsg }`;
+
+  const logger = createLog({ output: 'memory' });
+  const routeHandler = createRoute({ logger });
+
+  routeHandler({ url });
+
+  const actual = logger.memoryLog[0];
+  const expected = logMsg;
+
+  assert.equal(actual, expected, msg);
+  assert.end();
+});
+</code></pre>
+<p>我们来看看比较重要的细节。首先，我们创建一个 logger，然后在 memory 里做记录：</p>
+<pre><code>const logger = createLog({ output: 'memory' });
+</code></pre>
+<p>创建一个 router，然后把 logger 的依赖传过去</p>
+<pre><code>const routeHandler = createRoute({ logger });
+</code></pre>
+<p>向路由处理器发出假的请求，来测试记录的功能。</p>
+<pre><code>routeHandler({ url });
+</code></pre>
+<p>记录器应该返回内存里的 log。我们只需要检查下面的信息：</p>
+<pre><code>  const actual = logger.memoryLog[0];
+</code></pre>
+<p>类似的，对于有数据库读写的操作，你可以连接到数据库，检查数据是不是在那里，等等……</p>
+<p>很多集成测试测试相互作用提供服务，如第三方的 Api，并可能需要网络才能正常工作。为此，集成测试应与单元测试分开，以保持尽可能快地运行单元测试。</p>
+<h2>功能测试</h2>
+<p>功能测试是确保您的应用程序从用户的角度来看正常运行的自动化测试。功能测试测试用户的界面，输入和输出，确保软件按照期望方式做出响应。</p>
+<p>功能测试有时被称为端到端测试，因为他们测试整个应用程序，以及与之相关的硬件和网络基础设施，从前端 UI 到后端数据库系统。在这个意义上，功能测试也是一种集成测试，确保机器和组件的都按期望工作。</p>
+<p>功能测试通常会彻底测试&quot;最佳路径” — — 确保关键应用程序的功能，如用户登录、 注册，购买和工作相关的关键工作流的行为符合预期。</p>
+<p>通过 <a href="https://www.w3.org/TR/2016/WD-webdriver-20160120/" target="_blank" rel="noopener">Selenium</a> 这类 <a href="https://www.w3.org/TR/2016/WD-webdriver-20160120/" target="_blank" rel="noopener">WebDriver</a> 项目，功能测试能在诸如 <a href="https://saucelabs.com/" target="_blank" rel="noopener">Sauce Labs</a> 这样的云服务上正确运行。</p>
+<p>这可能有点奇技淫巧。幸运的是，我们有不少开源项目使得这件事简单不少。</p>
+<p>我个人最喜欢的是守夜人项目 —— <a href="http://nightwatchjs.org/" target="_blank" rel="noopener">Nightwatch.js</a>。从守夜人项目文档中可以看到，一个简单的守夜人功能测试套件像看起来是这样︰</p>
+<pre><code>module.exports = {
+  'Demo test Google' : function (browser) {
+    browser
+      .url('http://www.google.com')
+      .waitForElementVisible('body', 1000)
+      .setValue('input[type=text]', 'nightwatch')
+      .waitForElementVisible('button[name=btnG]', 1000)
+      .click('button[name=btnG]')
+      .pause(1000)
+      .assert.containsText('#main', 'Night Watch')
+      .end();
+  }
+};
+</code></pre>
+<p>正如你所看到的，在中间环境中，和在生产环境中，功能测试点击真实的 Url，他们通过模拟用户的真实操作来工作。他们可以单击按钮、 输入文本、 等待待页面上的更新，通过检验页面 UI 来做断言。</p>
+<h3>冒烟测试</h3>
+<p>当你部署了一个新的发布到生产环境后，很重要的一点就是确定它是否正常工作。你不希望你的用户比你还先发现错误 —— 因为这会赶走用户！</p>
+<p>维护一份自动化的功能测试 - 比方说烟雾测试，是很重要的。测试你应用中所有的重要功能。那些用户在日常操作中会遇到的请求。</p>
+<p>冒烟测试不是功能测试的唯一作用， 但是在我看来，却是最有意义的</p>
+<h2>为什么要持续发布产品？</h2>
+<p>在持续交付革命之前，软件发布都是使用瀑布过程。软件发布通过以下步骤，一次一个，每一步必须在下一步之前完成︰</p>
+<ol>
+<li>收集需求</li>
+<li>设计</li>
+<li>实现</li>
+<li>检验</li>
+<li>部署</li>
+<li>维护</li>
+</ol>
+<p>它之所以被称为瀑布，是因为如果你记录它从右到左的运行的时间，它看起来像从一个任务到下一个级联的瀑布。换句话说，在理论上你不能同时做这些事情。</p>
+<p>实际上，很多正在开发的项目的需求是在开发中才被发现的，而需求的变更常常导致灾难性的工程延误和返工。不可避免地，业务团队也会想&quot;简单的改变”在发布后的产品，而不打算通过整个昂贵、 耗时的瀑布式的过程，这经常导致在无限循环的变化管理会议和产品热修复。</p>
+<p>一个理论上的瀑布过程可能只是一个神话。在我的长长的职业生涯中，我与数百家企业，进行了磋商，但我从没见在真正的生产中见过完美的瀑布。典型的瀑布的发布周期可能会是几个月或几年。</p>
+<h2>持续发布的解决办法</h2>
+<p>持续发布法是一种开发方法，承认需求是随着项目的进展而被挖掘的，鼓励在短周期内增量改进软件，并确保不会导致问题，在任何时候软件发布。</p>
+<p>有了迭代，软件的改进可以在短短数小时内就上线。</p>
+<p>对比瀑布方案，我在无数的企业组织中都见过迭代开发顺利进行 —— 但我从没见过哪一个是在没有单元和功能的测试组件的情况下完成的，通常，测试组件也会包括集成测试。</p>
+<p>希望我的这篇文章告诉了你开始迭代发布所需要知道的所有内容。</p>
+<h2>结论</h2>
+<p>正如你所看到的，每种类型的测试发挥了重要作用。单元测试能够快速的反馈开发者，集成测试会覆盖所有的角落的组件，而功能测试确保一切最终用户的那里的情况一切正常。
+。</p>
+<p>至于您如何使用自动的测试您的代码，以及它们如何影响您的信心和生产力？请亲们尽情的留下评论！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/translations/" rel="tag"># translations</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/beginner's mind/" rel="next" title="初心勿忘">
+                <i class="fa fa-chevron-left"></i> 初心勿忘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/what-you-have-and-what-you-doesn't-have/" rel="prev" title="拥有的和带不走的 - 平安夜">
+                拥有的和带不走的 - 平安夜 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">David Lin</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">忽略测试的代价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">不同类型的测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">在持续发布中这些测试所扮演的角色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">集成测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">功能测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">冒烟测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">为什么要持续发布产品？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">持续发布的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">结论</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">David Lin</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://wildflame.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://wildflame.me/javascript-testing-unit-functional-integration/';
+        this.page.identifier = 'javascript-testing-unit-functional-integration/';
+        this.page.title = '［译］JavaScript 测试︰ 单元 vs 功能 vs 集成测试';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://wildflame.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
