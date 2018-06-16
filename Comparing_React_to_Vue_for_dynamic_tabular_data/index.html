@@ -466,32 +466,32 @@
 <p>以下是部分的开发者工具 timeline 的概要，在下面的这个项目里有实际的栈和 timeline 的截图：[<a href="https://github.com/footballradar/VueReactPerf/tree/master/results/v2" target="_blank" rel="noopener">https://github.com/footballradar/VueReactPerf/tree/master/results/v2</a></p>
 <p>有意思的是，Chrome 的开发工具在获取 Vue 的 500 场比赛测试结果的 30s 时间线时崩溃了，但 React 的 500 场比赛测试却没有。我们截取了 15s 的结果以取代它，但是让人不解的是，Vue 相比于 React，其实有更多的空闲时间。</p>
 <p>所有下面的结果都共享同一个主题：由于 React 的虚拟 Dom 的实现，它的 scripting 上运行的时间更长；Vue 由于要直接更改 Dom ，所以它有关在 painting 和 rendering 工作上更耗费资源。然而，所有工作都做完以后，Vue 在大多数情况下仍然比 React 快25%。这虽然不同于我们最初的巨大区别，仍然是一个值得关注的问题。</p>
-<h5>50 场比赛，100ms 的延迟</h5>
+<h5 id="50-场比赛-100ms-的延迟">50 场比赛，100ms 的延迟</h5>
 <p>React:<br>
 <img src="http://ww2.sinaimg.cn/large/a490147fgw1f4mtuj37onj207f04l74d.jpg" alt=""></p>
 <p>Vue:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/29bf60c3f146eab2c6dc.png" alt=""></p>
-<h5>50 场比赛，1s的延迟</h5>
+<h5 id="50-场比赛-1s的延迟">50 场比赛，1s的延迟</h5>
 <p>React:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/b0b15f794c9a2070a533.png" alt=""></p>
 <p>Vue:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/f6d6c16641bcdbfdc6cb.png" alt=""></p>
-<h5>100 场比赛，100ms 的延迟</h5>
+<h5 id="100-场比赛-100ms-的延迟">100 场比赛，100ms 的延迟</h5>
 <p>React:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/72c40b5122614ecb66af.png" alt=""></p>
 <p>Vue:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/239e96ce2a5037dd7a9a.png" alt=""></p>
-<h5>100 场比赛，1s 的延迟</h5>
+<h5 id="100-场比赛-1s-的延迟">100 场比赛，1s 的延迟</h5>
 <p>React:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/902c1fe2a6c6d5d9671f.png" alt=""></p>
 <p>Vue:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/5490fb9635b763d94c05.png" alt=""></p>
-<h5>500 场比赛，100ms 的延迟</h5>
+<h5 id="500-场比赛-100ms-的延迟">500 场比赛，100ms 的延迟</h5>
 <p>React:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/352538cf119141efb387.png" alt=""></p>
 <p>Vue:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/20251f4ab6a45b138669.png" alt=""></p>
-<h5>500 场比赛，1s 的延迟</h5>
+<h5 id="500-场比赛-1s-的延迟">500 场比赛，1s 的延迟</h5>
 <p>React:<br>
 <img src="http://ac-Myg6wSTV.clouddn.com/04278f218752b89c2042.png" alt=""></p>
 <p>Vue:<br>
@@ -628,7 +628,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -695,6 +695,15 @@
           
 
           
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/wild-flame" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
 
           
           
@@ -720,7 +729,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">与上一个测试相比的改变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">新发现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">50 场比赛，100ms 的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">50 场比赛，1s的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">100 场比赛，100ms 的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">100 场比赛，1s 的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.0.5.</span> <span class="nav-text">500 场比赛，100ms 的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.0.6.</span> <span class="nav-text">500 场比赛，1s 的延迟</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">与上一个测试相比的改变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">新发现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#50-场比赛-100ms-的延迟"><span class="nav-text">50 场比赛，100ms 的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#50-场比赛-1s的延迟"><span class="nav-text">50 场比赛，1s的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#100-场比赛-100ms-的延迟"><span class="nav-text">100 场比赛，100ms 的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#100-场比赛-1s-的延迟"><span class="nav-text">100 场比赛，1s 的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#500-场比赛-100ms-的延迟"><span class="nav-text">500 场比赛，100ms 的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#500-场比赛-1s-的延迟"><span class="nav-text">500 场比赛，1s 的延迟</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
