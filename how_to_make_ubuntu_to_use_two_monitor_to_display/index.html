@@ -112,7 +112,7 @@
 <meta name="keywords" content="tech">
 <meta property="og:type" content="article">
 <meta property="og:title" content="［操作系统］Ubuntu 12.04 + Gnome 3 的笔记本+显示器 配置成双屏幕显示">
-<meta property="og:url" content="https://wild-flame.github.io/how_to_make_ubuntu_to_use_two_monitor_to_display/index.html">
+<meta property="og:url" content="https://wildflame.me/how_to_make_ubuntu_to_use_two_monitor_to_display/index.html">
 <meta property="og:site_name" content="wildflame">
 <meta property="og:description" content="由于家里有一台多余显示器，所以希望能够连接上笔记本配置ubuntu为双屏幕。环境是：ubuntu12.04 + Gnome 3">
 <meta property="og:locale" content="default">
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://wild-flame.github.io/how_to_make_ubuntu_to_use_two_monitor_to_display/">
+  <link rel="canonical" href="https://wildflame.me/how_to_make_ubuntu_to_use_two_monitor_to_display/">
 
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wild-flame.github.io/how_to_make_ubuntu_to_use_two_monitor_to_display/">
+    <link itemprop="mainEntityOfPage" href="https://wildflame.me/how_to_make_ubuntu_to_use_two_monitor_to_display/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="David Lin">
@@ -426,16 +426,13 @@
 <p>查了一下网上的类似的情况，都写的很不清楚。</p>
 <p>方法有好几种，可以在终端下配置，也可以利用图形界面来配置。这里介绍一种最简单的方法。</p>
 <hr>
-<h2>1.登录配置界面</h2>
-<p><img src="http://img.my.csdn.net/uploads/201301/27/1359278858_4866.png" alt=""></p>
+<h2 id="1-登录配置界面"><a href="#1-登录配置界面" class="headerlink" title="1.登录配置界面"></a>1.登录配置界面</h2><p><img src="http://img.my.csdn.net/uploads/201301/27/1359278858_4866.png" alt=""></p>
 <hr>
-<h2>2.进入显示界面并设置。</h2>
-<p><img src="http://img.my.csdn.net/uploads/201301/27/1359278878_2560.png" alt=""></p>
+<h2 id="2-进入显示界面并设置。"><a href="#2-进入显示界面并设置。" class="headerlink" title="2.进入显示界面并设置。"></a>2.进入显示界面并设置。</h2><p><img src="http://img.my.csdn.net/uploads/201301/27/1359278878_2560.png" alt=""></p>
 <p>反选在镜像显示。并且两个显示器都选上开启。（这时候可能会出现配置问题，</p>
 <p>提示要设置的显示部分超出了screen的最大设置max（x,x））</p>
 <hr>
-<h2>3.配置xorg.conf（如果上一步没有报错的话就不用来这里了）</h2>
-<p>ubuntu12.04里的 xorg.conf 在 /etc/X11这个文件夹里面</p>
+<h2 id="3-配置xorg-conf（如果上一步没有报错的话就不用来这里了）"><a href="#3-配置xorg-conf（如果上一步没有报错的话就不用来这里了）" class="headerlink" title="3.配置xorg.conf（如果上一步没有报错的话就不用来这里了）"></a>3.配置xorg.conf（如果上一步没有报错的话就不用来这里了）</h2><p>ubuntu12.04里的 xorg.conf 在 /etc/X11这个文件夹里面</p>
 <p><em>注：Xorg是 X11 窗口系统的一个开源实现。Xorg 在 Linux 用户中非常流行，已经成为图形用户程序的必备条件，所以大部分发行版都提供了它。Xorg 可以通过/etc/X11/xorg.conf 或/etc/xorg.conf 和位于/etc/X11/xorg.conf.d/ 的配置文件配置，另外鸟哥有一篇专门介绍X window体系的系列见： <a href="http://linux.vbird.org/linux_basic/0590xwindow.php" target="_blank" rel="noopener">X Window設定介紹</a></em></p>
 <p>从终端里进入目录/etc/X11并打开xorg.conf （之所以用终端是因为要获取管理员权限，即sudo），找到下面这段</p>
 <pre><code>Section &quot;Screen&quot;  
@@ -448,11 +445,9 @@
         Depth     24  
     EndSubSection  
 EndSection  
-</code></pre>
-<p>在subsection &quot;Display&quot;这段中加上一句（4096也可是别的什么数，但是必须要大于两个显示器的总宽度，比如说Monitor A最大为1600 × 900， B最大为1440 × 900， 则要想实现显示至少为Virtual至少为3040 × 900）</p>
+</code></pre><p>在subsection “Display”这段中加上一句（4096也可是别的什么数，但是必须要大于两个显示器的总宽度，比如说Monitor A最大为1600 × 900， B最大为1440 × 900， 则要想实现显示至少为Virtual至少为3040 × 900）</p>
 <pre><code>Virtual         4096 4096  
-</code></pre>
-<p>即变为</p>
+</code></pre><p>即变为</p>
 <pre><code>Section &quot;Screen&quot;  
     Identifier &quot;aticonfig-Screen[0]-0&quot;  
     Device     &quot;aticonfig-Device[0]-0&quot;  
@@ -464,13 +459,13 @@ EndSection
         Depth     24  
     EndSubSection  
 EndSection  
-</code></pre>
-<hr>
-<h2>4.接下来重复第二步即可。</h2>
-<script type="text/javascript">
+</code></pre><hr>
+<h2 id="4-接下来重复第二步即可。"><a href="#4-接下来重复第二步即可。" class="headerlink" title="4.接下来重复第二步即可。"></a>4.接下来重复第二步即可。</h2><script type="text/javascript">
      $('pre').addClass('prettyprint linenums')
 </script>
+
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
+
 
       
     </div>
@@ -629,7 +624,7 @@ EndSection
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -732,7 +727,7 @@ EndSection
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">1.登录配置界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">2.进入显示界面并设置。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">3.配置xorg.conf（如果上一步没有报错的话就不用来这里了）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">4.接下来重复第二步即可。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-登录配置界面"><span class="nav-text">1.登录配置界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-进入显示界面并设置。"><span class="nav-text">2.进入显示界面并设置。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-配置xorg-conf（如果上一步没有报错的话就不用来这里了）"><span class="nav-text">3.配置xorg.conf（如果上一步没有报错的话就不用来这里了）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-接下来重复第二步即可。"><span class="nav-text">4.接下来重复第二步即可。</span></a></li></ol></div>
             
 
           </div>
@@ -888,7 +883,7 @@ EndSection
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://wild-flame.github.io/how_to_make_ubuntu_to_use_two_monitor_to_display/';
+        this.page.url = 'https://wildflame.me/how_to_make_ubuntu_to_use_two_monitor_to_display/';
         this.page.identifier = 'how_to_make_ubuntu_to_use_two_monitor_to_display/';
         this.page.title = '［操作系统］Ubuntu 12.04 + Gnome 3 的笔记本+显示器 配置成双屏幕显示';
         };

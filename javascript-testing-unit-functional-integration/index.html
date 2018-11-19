@@ -112,7 +112,7 @@
 <meta name="keywords" content="translations">
 <meta property="og:type" content="article">
 <meta property="og:title" content="［译］JavaScript 测试︰ 单元 vs 功能 vs 集成测试">
-<meta property="og:url" content="https://wild-flame.github.io/javascript-testing-unit-functional-integration/index.html">
+<meta property="og:url" content="https://wildflame.me/javascript-testing-unit-functional-integration/index.html">
 <meta property="og:site_name" content="wildflame">
 <meta property="og:description" content="是不是一直搞不清楚单元(Unit)测试，功能(Functional)测试和集成(Integration)测试的区别？">
 <meta property="og:locale" content="default">
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://wild-flame.github.io/javascript-testing-unit-functional-integration/">
+  <link rel="canonical" href="https://wildflame.me/javascript-testing-unit-functional-integration/">
 
 
 
@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wild-flame.github.io/javascript-testing-unit-functional-integration/">
+    <link itemprop="mainEntityOfPage" href="https://wildflame.me/javascript-testing-unit-functional-integration/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="David Lin">
@@ -424,18 +424,15 @@
         <blockquote>
 <ul>
 <li>原文地址：<a href="http://www.sitepoint.com/javascript-testing-unit-functional-integration" target="_blank" rel="noopener">JavaScript Testing: Unit vs Functional vs Integration Tests</a></li>
-</ul>
-</blockquote>
-<ul>
 <li>原文作者：<a href="https://www.sitepoint.com/author/eelliott/" target="_blank" rel="noopener">Eric Elliott</a></li>
 <li>译文出自：<a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a></li>
 <li>译者：<a href="http://github.com/wild-flame" target="_blank" rel="noopener">wild-flame</a></li>
 <li>校对者：<a href="https://github.com/marcmoore" target="_blank" rel="noopener">marcmoore</a>、<a href="https://github.com/Tina92" target="_blank" rel="noopener">Tina92</a></li>
 </ul>
+</blockquote>
 <p>单元测试、集成测试、功能测试这些自动化测试方法，是项目持续部署的基础。作为一种研发方式，它能帮助你在短时间内安全的发布新特性，而不用等上几个月甚至几年。</p>
 <p>自动测试通过捕捉更多的错误，增强了软件到达用户之前的稳定性。就好比是一张防护网一样，使开发者们在做更改的时候不必担心引发未知的错误。</p>
-<h2>忽略测试的代价</h2>
-<p>与直觉相反，维护一个高质量的测试套件能够极大地提高开发人员的效率，因为它使得开发人员能够立即发现开发中的错误。反过来说，如果没有这些套件，终端用户会遇到更多的 Bug，从而导致需要在用户服务，质量保证和错误报告上面投入更多的资源。</p>
+<h2 id="忽略测试的代价"><a href="#忽略测试的代价" class="headerlink" title="忽略测试的代价"></a>忽略测试的代价</h2><p>与直觉相反，维护一个高质量的测试套件能够极大地提高开发人员的效率，因为它使得开发人员能够立即发现开发中的错误。反过来说，如果没有这些套件，终端用户会遇到更多的 Bug，从而导致需要在用户服务，质量保证和错误报告上面投入更多的资源。</p>
 <p>测试驱动开发（TDD）在前期需要更多的时间，但是一旦 Bug 到了用户那里，你会付出更多的代价：</p>
 <ul>
 <li>它们会影响用户体验，而这会导致你销量下降，用户减少，甚至赶走潜在的客户。</li>
@@ -445,13 +442,11 @@
 <li>机会成本：开发团队必须等到 Bug 被修补以后，才能继续按照计划开发。</li>
 </ul>
 <p>在生产环境里的 Bug 使你付出的代价往往要数倍于在自动化测试时发现的 Bug。换句话说，如果你计算投资与回报的话，测试驱动开发（TDD）将具有压倒性的优势。</p>
-<h2>不同类型的测试</h2>
-<p>你需要了解的第一件事情就是，每一种测试都有它自己的作用。他们都在软件的持续发布中起了扮演着重要的角色。</p>
+<h2 id="不同类型的测试"><a href="#不同类型的测试" class="headerlink" title="不同类型的测试"></a>不同类型的测试</h2><p>你需要了解的第一件事情就是，每一种测试都有它自己的作用。他们都在软件的持续发布中起了扮演着重要的角色。</p>
 <p>前阵子，我为一个野心勃勃的项目做了咨询，这个团队费尽心机的希望搭建一个可靠的测试套件。但因其难以使用和理解，很少派上用场，更无法继续维护。</p>
 <p>我观察到的其中一个问题就是，现有套件混淆了单元，功能和集成测试。以至于不同类型的测试之间没有明显的区别。</p>
 <p>其结果是现有测试套件不适合任何一个测试套件。</p>
-<h2>在持续发布中这些测试所扮演的角色</h2>
-<p>每种类型的测试可以发挥其独特的作用。你不用在单元测试、功能测试和集成测试中做选择。因为你会使用全部的这三种测试，并确保可以独立的运行这三种类型的测试套件。</p>
+<h2 id="在持续发布中这些测试所扮演的角色"><a href="#在持续发布中这些测试所扮演的角色" class="headerlink" title="在持续发布中这些测试所扮演的角色"></a>在持续发布中这些测试所扮演的角色</h2><p>每种类型的测试可以发挥其独特的作用。你不用在单元测试、功能测试和集成测试中做选择。因为你会使用全部的这三种测试，并确保可以独立的运行这三种类型的测试套件。</p>
 <p>大多数应用程序都需要单元测试和功能测试，而许多复杂的应用程序在此基础上，还需要集成测试。</p>
 <ul>
 <li><strong>单元测试</strong> 用来确保每个组件正常工作 —— 测试组件的 API 。</li>
@@ -469,7 +464,7 @@
 <ul>
 <li>用户体验测试（针对最终用户）</li>
 <li>开发 API 测试（针对开发人员）</li>
-<li>基础设施测试（负载测试、 网络集成测试等…）</li>
+<li>基础设施测试（负载测试、 网络集成测试等……）</li>
 </ul>
 <p>用户体验测试从用户的角度来测试，使用实际的用户界面，通常是在目标平台或设备上。</p>
 <p>API 测试则从开发者的角度来做测试。我说的可不是 Http API。我说的是一个 Unit 的 API，而一个 Unit 指开发者创建出来用来和其他模块或者类交互的一整个部分。</p>
@@ -496,18 +491,18 @@
 <li>你期望什么结果</li>
 <li>如何重现</li>
 </ol>
-<p>前四个问题应在故障报告中清晰可见，而最后的那个问题应该从测试的执行很清楚的中找到。当然，在一份不合格的报告中有一些 assertion 的类型是不能回答所有问题的,但大部分的问题 ‘equal’、 ’same’，或者 'deepEqual’ 都应该可以做到。事实上，如果那些断言是现有断言库里的唯一断言，现存的大多数测试套件可能会更好。大道至简！</p>
+<p>前四个问题应在故障报告中清晰可见，而最后的那个问题应该从测试的执行很清楚的中找到。当然，在一份不合格的报告中有一些 assertion 的类型是不能回答所有问题的,但大部分的问题 ‘equal’、 ’same’，或者 ‘deepEqual’ 都应该可以做到。事实上，如果那些断言是现有断言库里的唯一断言，现存的大多数测试套件可能会更好。大道至简！</p>
 <p>下面这个是我在实际项目中使用 <a href="https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4" target="_blank" rel="noopener">Tape</a> 的做单元测试的例子：</p>
 <pre><code>// Ensure that the initial state of the &quot;hello&quot; reducer gets set correctly
-import test from 'tape';
-import hello from 'store/reducers/hello';
+import test from &apos;tape&apos;;
+import hello from &apos;store/reducers/hello&apos;;
 
-test('...initial', assert =&gt; {
-  const message = `should set { mode: 'display', subject: 'world' }`;
+test(&apos;...initial&apos;, assert =&gt; {
+  const message = `should set { mode: &apos;display&apos;, subject: &apos;world&apos; }`;
 
   const expected = {
-    mode: 'display',
-    subject: 'World'
+    mode: &apos;display&apos;,
+    subject: &apos;World&apos;
   };
 
   const actual = hello();
@@ -517,26 +512,24 @@ test('...initial', assert =&gt; {
 });
 
 // Asynchronous test to ensure that a password hash is created as expected.
-import test from 'tape',
-import credential from '../credential';
+import test from &apos;tape&apos;,
+import credential from &apos;../credential&apos;;
 
-test('hash', function (t) {
+test(&apos;hash&apos;, function (t) {
   // Create a password record
   const pw = credential();
 
   // Asynchronously create the password hash
-  pw.hash('foo', function (err, hash) {
-    t.error(err, 'should not throw an error');
+  pw.hash(&apos;foo&apos;, function (err, hash) {
+    t.error(err, &apos;should not throw an error&apos;);
 
     t.ok(JSON.parse(hash).hash,
-      'should be a json string representing the hash.');
+      &apos;should be a json string representing the hash.&apos;);
 
     t.end();
   });
 });
-</code></pre>
-<h2>集成测试</h2>
-<p>集成测试确保各组件一起正常工作。例如，节点路由处理程序可能需要一个记录器（logger）作为依赖。集成测试可测试路由和连接被正确的记录。</p>
+</code></pre><h2 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h2><p>集成测试确保各组件一起正常工作。例如，节点路由处理程序可能需要一个记录器（logger）作为依赖。集成测试可测试路由和连接被正确的记录。</p>
 <p>这里有两个组件同时被测试了：</p>
 <ol>
 <li>路由处理器（Route handler）</li>
@@ -546,20 +539,19 @@ test('hash', function (t) {
 <p>如果我们对路由处理器做单元测试。我们不会管 Logger，或者与它有任何关系。我们会对路由做假的请求来测试。</p>
 <p>Route handler 作为一种工厂函数通过依赖注入将 logger 注入进去。我们来看一段批注：</p>
 <pre><code>createRoute({ logger: LoggerInstance }) =&gt; RouteHandler
-</code></pre>
-<p>让我们看看如何测试它：</p>
-<pre><code>import test from 'tape';
+</code></pre><p>让我们看看如何测试它：</p>
+<pre><code>import test from &apos;tape&apos;;
 
-import createLog from 'shared/logger';
-import routeRoute from 'routes/my-route';
+import createLog from &apos;shared/logger&apos;;
+import routeRoute from &apos;routes/my-route&apos;;
 
-test('logger/route integration', assert =&gt; {
-  const msg = 'Logger logs router calls to memory';
+test(&apos;logger/route integration&apos;, assert =&gt; {
+  const msg = &apos;Logger logs router calls to memory&apos;;
 
-  const logMsg = 'hello';
+  const logMsg = &apos;hello&apos;;
   const url = `http://127.0.0.1/msg/${ logMsg }`;
 
-  const logger = createLog({ output: 'memory' });
+  const logger = createLog({ output: &apos;memory&apos; });
   const routeHandler = createRoute({ logger });
 
   routeHandler({ url });
@@ -570,49 +562,40 @@ test('logger/route integration', assert =&gt; {
   assert.equal(actual, expected, msg);
   assert.end();
 });
-</code></pre>
-<p>我们来看看比较重要的细节。首先，我们创建一个 logger，然后在 memory 里做记录：</p>
-<pre><code>const logger = createLog({ output: 'memory' });
-</code></pre>
-<p>创建一个 router，然后把 logger 的依赖传过去</p>
+</code></pre><p>我们来看看比较重要的细节。首先，我们创建一个 logger，然后在 memory 里做记录：</p>
+<pre><code>const logger = createLog({ output: &apos;memory&apos; });
+</code></pre><p>创建一个 router，然后把 logger 的依赖传过去</p>
 <pre><code>const routeHandler = createRoute({ logger });
-</code></pre>
-<p>向路由处理器发出假的请求，来测试记录的功能。</p>
+</code></pre><p>向路由处理器发出假的请求，来测试记录的功能。</p>
 <pre><code>routeHandler({ url });
-</code></pre>
-<p>记录器应该返回内存里的 log。我们只需要检查下面的信息：</p>
-<pre><code>  const actual = logger.memoryLog[0];
-</code></pre>
-<p>类似的，对于有数据库读写的操作，你可以连接到数据库，检查数据是不是在那里，等等……</p>
+</code></pre><p>记录器应该返回内存里的 log。我们只需要检查下面的信息：</p>
+<pre><code>const actual = logger.memoryLog[0];
+</code></pre><p>类似的，对于有数据库读写的操作，你可以连接到数据库，检查数据是不是在那里，等等……</p>
 <p>很多集成测试测试相互作用提供服务，如第三方的 Api，并可能需要网络才能正常工作。为此，集成测试应与单元测试分开，以保持尽可能快地运行单元测试。</p>
-<h2>功能测试</h2>
-<p>功能测试是确保您的应用程序从用户的角度来看正常运行的自动化测试。功能测试测试用户的界面，输入和输出，确保软件按照期望方式做出响应。</p>
+<h2 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h2><p>功能测试是确保您的应用程序从用户的角度来看正常运行的自动化测试。功能测试测试用户的界面，输入和输出，确保软件按照期望方式做出响应。</p>
 <p>功能测试有时被称为端到端测试，因为他们测试整个应用程序，以及与之相关的硬件和网络基础设施，从前端 UI 到后端数据库系统。在这个意义上，功能测试也是一种集成测试，确保机器和组件的都按期望工作。</p>
-<p>功能测试通常会彻底测试&quot;最佳路径” — — 确保关键应用程序的功能，如用户登录、 注册，购买和工作相关的关键工作流的行为符合预期。</p>
+<p>功能测试通常会彻底测试”最佳路径” — — 确保关键应用程序的功能，如用户登录、 注册，购买和工作相关的关键工作流的行为符合预期。</p>
 <p>通过 <a href="https://www.w3.org/TR/2016/WD-webdriver-20160120/" target="_blank" rel="noopener">Selenium</a> 这类 <a href="https://www.w3.org/TR/2016/WD-webdriver-20160120/" target="_blank" rel="noopener">WebDriver</a> 项目，功能测试能在诸如 <a href="https://saucelabs.com/" target="_blank" rel="noopener">Sauce Labs</a> 这样的云服务上正确运行。</p>
 <p>这可能有点奇技淫巧。幸运的是，我们有不少开源项目使得这件事简单不少。</p>
 <p>我个人最喜欢的是守夜人项目 —— <a href="http://nightwatchjs.org/" target="_blank" rel="noopener">Nightwatch.js</a>。从守夜人项目文档中可以看到，一个简单的守夜人功能测试套件像看起来是这样︰</p>
 <pre><code>module.exports = {
-  'Demo test Google' : function (browser) {
+  &apos;Demo test Google&apos; : function (browser) {
     browser
-      .url('http://www.google.com')
-      .waitForElementVisible('body', 1000)
-      .setValue('input[type=text]', 'nightwatch')
-      .waitForElementVisible('button[name=btnG]', 1000)
-      .click('button[name=btnG]')
+      .url(&apos;http://www.google.com&apos;)
+      .waitForElementVisible(&apos;body&apos;, 1000)
+      .setValue(&apos;input[type=text]&apos;, &apos;nightwatch&apos;)
+      .waitForElementVisible(&apos;button[name=btnG]&apos;, 1000)
+      .click(&apos;button[name=btnG]&apos;)
       .pause(1000)
-      .assert.containsText('#main', 'Night Watch')
+      .assert.containsText(&apos;#main&apos;, &apos;Night Watch&apos;)
       .end();
   }
 };
-</code></pre>
-<p>正如你所看到的，在中间环境中，和在生产环境中，功能测试点击真实的 Url，他们通过模拟用户的真实操作来工作。他们可以单击按钮、 输入文本、 等待待页面上的更新，通过检验页面 UI 来做断言。</p>
-<h3 id="冒烟测试">冒烟测试</h3>
-<p>当你部署了一个新的发布到生产环境后，很重要的一点就是确定它是否正常工作。你不希望你的用户比你还先发现错误 —— 因为这会赶走用户！</p>
+</code></pre><p>正如你所看到的，在中间环境中，和在生产环境中，功能测试点击真实的 Url，他们通过模拟用户的真实操作来工作。他们可以单击按钮、 输入文本、 等待待页面上的更新，通过检验页面 UI 来做断言。</p>
+<h3 id="冒烟测试"><a href="#冒烟测试" class="headerlink" title="冒烟测试"></a>冒烟测试</h3><p>当你部署了一个新的发布到生产环境后，很重要的一点就是确定它是否正常工作。你不希望你的用户比你还先发现错误 —— 因为这会赶走用户！</p>
 <p>维护一份自动化的功能测试 - 比方说烟雾测试，是很重要的。测试你应用中所有的重要功能。那些用户在日常操作中会遇到的请求。</p>
 <p>冒烟测试不是功能测试的唯一作用， 但是在我看来，却是最有意义的</p>
-<h2>为什么要持续发布产品？</h2>
-<p>在持续交付革命之前，软件发布都是使用瀑布过程。软件发布通过以下步骤，一次一个，每一步必须在下一步之前完成︰</p>
+<h2 id="为什么要持续发布产品？"><a href="#为什么要持续发布产品？" class="headerlink" title="为什么要持续发布产品？"></a>为什么要持续发布产品？</h2><p>在持续交付革命之前，软件发布都是使用瀑布过程。软件发布通过以下步骤，一次一个，每一步必须在下一步之前完成︰</p>
 <ol>
 <li>收集需求</li>
 <li>设计</li>
@@ -622,16 +605,13 @@ test('logger/route integration', assert =&gt; {
 <li>维护</li>
 </ol>
 <p>它之所以被称为瀑布，是因为如果你记录它从右到左的运行的时间，它看起来像从一个任务到下一个级联的瀑布。换句话说，在理论上你不能同时做这些事情。</p>
-<p>实际上，很多正在开发的项目的需求是在开发中才被发现的，而需求的变更常常导致灾难性的工程延误和返工。不可避免地，业务团队也会想&quot;简单的改变”在发布后的产品，而不打算通过整个昂贵、 耗时的瀑布式的过程，这经常导致在无限循环的变化管理会议和产品热修复。</p>
+<p>实际上，很多正在开发的项目的需求是在开发中才被发现的，而需求的变更常常导致灾难性的工程延误和返工。不可避免地，业务团队也会想”简单的改变”在发布后的产品，而不打算通过整个昂贵、 耗时的瀑布式的过程，这经常导致在无限循环的变化管理会议和产品热修复。</p>
 <p>一个理论上的瀑布过程可能只是一个神话。在我的长长的职业生涯中，我与数百家企业，进行了磋商，但我从没见在真正的生产中见过完美的瀑布。典型的瀑布的发布周期可能会是几个月或几年。</p>
-<h2>持续发布的解决办法</h2>
-<p>持续发布法是一种开发方法，承认需求是随着项目的进展而被挖掘的，鼓励在短周期内增量改进软件，并确保不会导致问题，在任何时候软件发布。</p>
+<h2 id="持续发布的解决办法"><a href="#持续发布的解决办法" class="headerlink" title="持续发布的解决办法"></a>持续发布的解决办法</h2><p>持续发布法是一种开发方法，承认需求是随着项目的进展而被挖掘的，鼓励在短周期内增量改进软件，并确保不会导致问题，在任何时候软件发布。</p>
 <p>有了迭代，软件的改进可以在短短数小时内就上线。</p>
 <p>对比瀑布方案，我在无数的企业组织中都见过迭代开发顺利进行 —— 但我从没见过哪一个是在没有单元和功能的测试组件的情况下完成的，通常，测试组件也会包括集成测试。</p>
 <p>希望我的这篇文章告诉了你开始迭代发布所需要知道的所有内容。</p>
-<h2>结论</h2>
-<p>正如你所看到的，每种类型的测试发挥了重要作用。单元测试能够快速的反馈开发者，集成测试会覆盖所有的角落的组件，而功能测试确保一切最终用户的那里的情况一切正常。
-。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>正如你所看到的，每种类型的测试发挥了重要作用。单元测试能够快速的反馈开发者，集成测试会覆盖所有的角落的组件，而功能测试确保一切最终用户的那里的情况一切正常。<br>。</p>
 <p>至于您如何使用自动的测试您的代码，以及它们如何影响您的信心和生产力？请亲们尽情的留下评论！</p>
 
       
@@ -791,7 +771,7 @@ test('logger/route integration', assert =&gt; {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -894,7 +874,7 @@ test('logger/route integration', assert =&gt; {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">忽略测试的代价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">不同类型的测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">在持续发布中这些测试所扮演的角色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">集成测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">功能测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒烟测试"><span class="nav-text">冒烟测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">为什么要持续发布产品？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">持续发布的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略测试的代价"><span class="nav-text">忽略测试的代价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同类型的测试"><span class="nav-text">不同类型的测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在持续发布中这些测试所扮演的角色"><span class="nav-text">在持续发布中这些测试所扮演的角色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成测试"><span class="nav-text">集成测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能测试"><span class="nav-text">功能测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒烟测试"><span class="nav-text">冒烟测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要持续发布产品？"><span class="nav-text">为什么要持续发布产品？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持续发布的解决办法"><span class="nav-text">持续发布的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
@@ -1050,7 +1030,7 @@ test('logger/route integration', assert =&gt; {
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://wild-flame.github.io/javascript-testing-unit-functional-integration/';
+        this.page.url = 'https://wildflame.me/javascript-testing-unit-functional-integration/';
         this.page.identifier = 'javascript-testing-unit-functional-integration/';
         this.page.title = '［译］JavaScript 测试︰ 单元 vs 功能 vs 集成测试';
         };

@@ -112,7 +112,7 @@
 <meta name="keywords" content="tech">
 <meta property="og:type" content="article">
 <meta property="og:title" content="［Python］ubuntu 12.04下面安装影像处理的库PIL的安装, Pygame的安装，以及一些实用的资料整理">
-<meta property="og:url" content="https://wild-flame.github.io/how_to_install_PIL_for_python_under_ubuntu_12.04/index.html">
+<meta property="og:url" content="https://wildflame.me/how_to_install_PIL_for_python_under_ubuntu_12.04/index.html">
 <meta property="og:site_name" content="wildflame">
 <meta property="og:description" content="之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3">
 <meta property="og:locale" content="default">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="https://wild-flame.github.io/how_to_install_PIL_for_python_under_ubuntu_12.04/">
+  <link rel="canonical" href="https://wildflame.me/how_to_install_PIL_for_python_under_ubuntu_12.04/">
 
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wild-flame.github.io/how_to_install_PIL_for_python_under_ubuntu_12.04/">
+    <link itemprop="mainEntityOfPage" href="https://wildflame.me/how_to_install_PIL_for_python_under_ubuntu_12.04/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="David Lin">
@@ -421,54 +421,40 @@
       
         <!--下面是正文-->
 <p>之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3等。</p>
-<h2>1.Install PIL</h2>
-<pre><code>$ sudo apt-get install python-imaging
+<h2 id="1-Install-PIL"><a href="#1-Install-PIL" class="headerlink" title="1.Install PIL"></a>1.Install PIL</h2><pre><code>$ sudo apt-get install python-imaging
 $ sudo apt-get install libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
-</code></pre>
-<p>然后：</p>
+</code></pre><p>然后：</p>
 <pre><code>$ sudo ln -s /usr/lib/`uname -i`-linux-gnu/libfreetype.so /usr/lib/
 $ sudo ln -s /usr/lib/`uname -i`-linux-gnu/libjpeg.so /usr/lib/
 $ sudo ln -s /usr/lib/`uname -i`-linux-gnu/libz.so /usr/lib/
-</code></pre>
-<p>最后：</p>
+</code></pre><p>最后：</p>
 <pre><code>$ pip install PIL
-</code></pre>
-<p>一般这样就可以了。完成！^^</p>
+</code></pre><p>一般这样就可以了。完成！^^</p>
 <hr>
 <p>但是如果出现：</p>
 <pre><code>gcc -pthread -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -IlibImaging -I/usr/include -I/usr/local/include -I/usr/include/python2.6 -c _imaging.c -o build/temp.linux-i686-2.6/_imaging.o
 _imaging.c:75:20: error: Python.h: 没有那个文件或目录
 In file included from libImaging/Imaging.h:14,from _imaging.c:77:
-</code></pre>
-<p>错误信息，最后的显示结果为：
-command ‘gcc’ failed with exit status 1</p>
+</code></pre><p>错误信息，最后的显示结果为：<br>    command ‘gcc’ failed with exit status 1</p>
 <p>就还需要做下面的事情。</p>
 <hr>
 <p><strong>1.安装python-all-dev</strong></p>
-<p><strong><a href="http://2.xn--PILsetup-w39ly9ez9wl35biriih5biwqz68d.py" target="_blank" rel="noopener">2.然后执行PIL文件下的setup.py</a></strong></p>
+<p><strong>2.然后执行PIL文件下的setup.py</strong></p>
 <hr>
 <p>参见此君的博文：</p>
 <p><a href="http://blog.sina.com.cn/s/blog_5cd78a5d0101jcza.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_5cd78a5d0101jcza.html</a></p>
 <blockquote>
-<p><em>为了找到缺什么，我们运行</em>
-<em>apt-cache search python | grep dev</em>h
-<em>没有找到python的C语言开发包。</em>
-<em>安装python-all-dev,<a href="http://xn--PILsetup-w39l95b16a822bj57bdfj3ncs44e33s3e7e.py" target="_blank" rel="noopener">于是然后执行PIL文件下的setup.py</a>，安装成功。</em></p>
+<p><em>为了找到缺什么，我们运行</em><br>  <em>apt-cache search python | grep dev</em>h<br><em>没有找到python的C语言开发包。</em><br><em>安装python-all-dev,于是然后执行PIL文件下的setup.py，安装成功。</em></p>
 </blockquote>
 <hr>
-<h2>Pygame的安装</h2>
-<p>如果输入</p>
+<h2 id="Pygame的安装"><a href="#Pygame的安装" class="headerlink" title="Pygame的安装"></a>Pygame的安装</h2><p>如果输入</p>
 <pre><code>$ pip intsall Pygame
-</code></pre>
-<p>会出现下面的错误</p>
-<pre><code>No such file or directory: '/home/×××××/build/Pygame/setup.py'
-</code></pre>
-<p>使用就可以</p>
+</code></pre><p>会出现下面的错误</p>
+<pre><code>No such file or directory: &apos;/home/×××××/build/Pygame/setup.py&apos;
+</code></pre><p>使用就可以</p>
 <pre><code>$ pip install http://www.pygame.org/ftp/pygame-1.9.1release.tar.gz
-</code></pre>
-<p>可以详细看关于这个Bug的issue讨论：<a href="https://bitbucket.org/pygame/pygame/issue/59/pygame-has-no-pypi-page-and-cant-be" target="_blank" rel="noopener">https://bitbucket.org/pygame/pygame/issue/59/pygame-has-no-pypi-page-and-cant-be</a></p>
-<h2>2.有用的参考资料：</h2>
-<ul>
+</code></pre><p>可以详细看关于这个Bug的issue讨论：<a href="https://bitbucket.org/pygame/pygame/issue/59/pygame-has-no-pypi-page-and-cant-be" target="_blank" rel="noopener">https://bitbucket.org/pygame/pygame/issue/59/pygame-has-no-pypi-page-and-cant-be</a></p>
+<h2 id="2-有用的参考资料："><a href="#2-有用的参考资料：" class="headerlink" title="2.有用的参考资料："></a>2.有用的参考资料：</h2><ul>
 <li>官方文档 <a href="http://effbot.org/imagingbook/" target="_blank" rel="noopener">http://effbot.org/imagingbook/</a></li>
 <li>数字图像处理PIL的一个实例 <a href="http://blog.sina.com.cn/s/blog_4b5039210100f6ki.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_4b5039210100f6ki.html</a></li>
 <li>一篇关于如何成为Python高手的文章，是从 How to become a proficient Python programmer 这篇文章翻译而来的 <a href="http://www.zhizhihu.com/html/y2011/3093.html" target="_blank" rel="noopener">http://www.zhizhihu.com/html/y2011/3093.html</a></li>
@@ -478,8 +464,7 @@ command ‘gcc’ failed with exit status 1</p>
 <li>Matplotlib的官方文档 <a href="http://matplotlib.sourceforge.net/Matplotlib.pdf" target="_blank" rel="noopener">http://matplotlib.sourceforge.net/Matplotlib.pdf</a></li>
 </ul>
 <hr>
-<h2>3.References:</h2>
-<ul>
+<h2 id="3-References"><a href="#3-References" class="headerlink" title="3.References:"></a>3.References:</h2><ul>
 <li><a href="http://askubuntu.com/questions/156484/how-do-i-install-python-imaging-library-pil" target="_blank" rel="noopener">http://askubuntu.com/questions/156484/how-do-i-install-python-imaging-library-pil</a></li>
 <li><a href="http://www.sandersnewmedia.com/why/2012/04/16/installing-pil-virtualenv-ubuntu-1204-precise-pangolin/" target="_blank" rel="noopener">http://www.sandersnewmedia.com/why/2012/04/16/installing-pil-virtualenv-ubuntu-1204-precise-pangolin/</a></li>
 <li><a href="http://blog.sina.com.cn/s/blog_5cd78a5d0101jcza.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_5cd78a5d0101jcza.html</a></li>
@@ -642,7 +627,7 @@ command ‘gcc’ failed with exit status 1</p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -745,7 +730,7 @@ command ‘gcc’ failed with exit status 1</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">1.Install PIL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Pygame的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">2.有用的参考资料：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">3.References:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Install-PIL"><span class="nav-text">1.Install PIL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pygame的安装"><span class="nav-text">Pygame的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-有用的参考资料："><span class="nav-text">2.有用的参考资料：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-References"><span class="nav-text">3.References:</span></a></li></ol></div>
             
 
           </div>
@@ -901,7 +886,7 @@ command ‘gcc’ failed with exit status 1</p>
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://wild-flame.github.io/how_to_install_PIL_for_python_under_ubuntu_12.04/';
+        this.page.url = 'https://wildflame.me/how_to_install_PIL_for_python_under_ubuntu_12.04/';
         this.page.identifier = 'how_to_install_PIL_for_python_under_ubuntu_12.04/';
         this.page.title = '［Python］ubuntu 12.04下面安装影像处理的库PIL的安装, Pygame的安装，以及一些实用的资料整理';
         };

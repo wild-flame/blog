@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="前言 Javascript 在设计之初，并没有考虑到 OOP（面向对象编程），但是随着 node.js 以及前端工程化的发展，项目越来越大，为了项目维护的方便，也不得不考虑面向对象编程了。">
+  <meta name="description" content="前言Javascript 在设计之初，并没有考虑到 OOP（面向对象编程），但是随着 node.js 以及前端工程化的发展，项目越来越大，为了项目维护的方便，也不得不考虑面向对象编程了。">
 <meta name="keywords" content="diary">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript 里的面向对象编程">
-<meta property="og:url" content="https://wild-flame.github.io/object_in_javascript/index.html">
+<meta property="og:url" content="https://wildflame.me/object_in_javascript/index.html">
 <meta property="og:site_name" content="wildflame">
-<meta property="og:description" content="前言 Javascript 在设计之初，并没有考虑到 OOP（面向对象编程），但是随着 node.js 以及前端工程化的发展，项目越来越大，为了项目维护的方便，也不得不考虑面向对象编程了。">
+<meta property="og:description" content="前言Javascript 在设计之初，并没有考虑到 OOP（面向对象编程），但是随着 node.js 以及前端工程化的发展，项目越来越大，为了项目维护的方便，也不得不考虑面向对象编程了。">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-06-15T10:04:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript 里的面向对象编程">
-<meta name="twitter:description" content="前言 Javascript 在设计之初，并没有考虑到 OOP（面向对象编程），但是随着 node.js 以及前端工程化的发展，项目越来越大，为了项目维护的方便，也不得不考虑面向对象编程了。">
+<meta name="twitter:description" content="前言Javascript 在设计之初，并没有考虑到 OOP（面向对象编程），但是随着 node.js 以及前端工程化的发展，项目越来越大，为了项目维护的方便，也不得不考虑面向对象编程了。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://wild-flame.github.io/object_in_javascript/">
+  <link rel="canonical" href="https://wildflame.me/object_in_javascript/">
 
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wild-flame.github.io/object_in_javascript/">
+    <link itemprop="mainEntityOfPage" href="https://wildflame.me/object_in_javascript/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="David Lin">
@@ -417,19 +417,16 @@
       
 
       
-        <h1>前言</h1>
-<p>Javascript 在设计之初，并没有考虑到 OOP（面向对象编程），但是随着 node.js 以及前端工程化的发展，项目越来越大，为了项目维护的方便，也不得不考虑面向对象编程了。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Javascript 在设计之初，并没有考虑到 OOP（面向对象编程），但是随着 node.js 以及前端工程化的发展，项目越来越大，为了项目维护的方便，也不得不考虑面向对象编程了。</p>
 <a id="more"></a>
-<h1>Javascript 里面向对象的实现有哪几种方法？</h1>
-<p>Javascript 的面向对象的实现一共有三种。</p>
+<h1 id="Javascript-里面向对象的实现有哪几种方法？"><a href="#Javascript-里面向对象的实现有哪几种方法？" class="headerlink" title="Javascript 里面向对象的实现有哪几种方法？"></a>Javascript 里面向对象的实现有哪几种方法？</h1><p>Javascript 的面向对象的实现一共有三种。</p>
 <ol>
 <li>构造函数的方法</li>
 <li>Object.create 的方法</li>
 <li>极简主义的实现</li>
 </ol>
 <p>我们先来看第一种方法。</p>
-<h2>1.通过构造函数来实现面向对象的编程</h2>
-<p>首先我们来看看如何使用构造函数的方法来实现。</p>
+<h2 id="1-通过构造函数来实现面向对象的编程"><a href="#1-通过构造函数来实现面向对象的编程" class="headerlink" title="1.通过构造函数来实现面向对象的编程"></a>1.通过构造函数来实现面向对象的编程</h2><p>首先我们来看看如何使用构造函数的方法来实现。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, sex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.sex = sex</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>类函数的定义</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"my name is "</span> + <span class="keyword">this</span>.name, <span class="string">",And I am "</span> + <span class="keyword">this</span>.sex)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -440,66 +437,55 @@
 <p>然后我们打印出 boss 来看一下</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; boss</span><br><span class="line">Person &#123; <span class="attr">name</span>: <span class="string">'David'</span>, <span class="attr">sex</span>: <span class="string">'male'</span> &#125;</span><br></pre></td></tr></table></figure>
 <p>总结：<strong>boss 是一个对象，Person 是一个函数 (类的构造函数)，如果想要定义类函数，定义在 Person.prototype 上面。</strong></p>
-<h2>2.通过 Object.create 方法来创造对象。</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  isHuman: <span class="literal">false</span>,</span><br><span class="line">  say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`My name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>. Am I human? <span class="subst">$&#123;<span class="keyword">this</span>.isHuman&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="built_in">Object</span>.create(person);</span><br><span class="line"></span><br><span class="line">me.name = <span class="string">"David"</span>; <span class="comment">// "name" is a property set on "me", but not on "person"</span></span><br><span class="line">me.isHuman = <span class="literal">true</span>; <span class="comment">// inherited properties can be overwritten</span></span><br><span class="line"></span><br><span class="line">me.say();</span><br><span class="line"><span class="comment">// expected output: "My name is David. Am I human? true"</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-通过-Object-create-方法来创造对象。"><a href="#2-通过-Object-create-方法来创造对象。" class="headerlink" title="2.通过 Object.create 方法来创造对象。"></a>2.通过 Object.create 方法来创造对象。</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  isHuman: <span class="literal">false</span>,</span><br><span class="line">  say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`My name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>. Am I human? <span class="subst">$&#123;<span class="keyword">this</span>.isHuman&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="built_in">Object</span>.create(person);</span><br><span class="line"></span><br><span class="line">me.name = <span class="string">"David"</span>; <span class="comment">// "name" is a property set on "me", but not on "person"</span></span><br><span class="line">me.isHuman = <span class="literal">true</span>; <span class="comment">// inherited properties can be overwritten</span></span><br><span class="line"></span><br><span class="line">me.say();</span><br><span class="line"><span class="comment">// expected output: "My name is David. Am I human? true"</span></span><br></pre></td></tr></table></figure>
 <p>我们打印出 person 和 me 来看一下。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; person</span><br><span class="line">&#123; <span class="attr">isHuman</span>: <span class="literal">false</span>, <span class="attr">say</span>: [<span class="built_in">Function</span>: say] &#125;</span><br><span class="line"></span><br><span class="line">&gt; me</span><br><span class="line">&#123; <span class="attr">name</span>: <span class="string">'David'</span>, <span class="attr">isHuman</span>: <span class="literal">true</span> &#125;</span><br></pre></td></tr></table></figure>
 <p>对比前一种方法，我们发现方法二是通过一个对象来构建一个对象。</p>
-<h3 id="深入理解-object-create">深入理解 Object.create</h3>
-<p>如果了解 javascript 的原型链的话，我们可以更深入的研究下去：</p>
+<h3 id="深入理解-Object-create"><a href="#深入理解-Object-create" class="headerlink" title="深入理解 Object.create"></a>深入理解 Object.create</h3><p>如果了解 javascript 的原型链的话，我们可以更深入的研究下去：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; me.__proto__ </span><br><span class="line">&#123; <span class="attr">isHuman</span>: <span class="literal">false</span>, <span class="attr">say</span>: [<span class="built_in">Function</span>: say] &#125;</span><br><span class="line"></span><br><span class="line">&gt; me.__proto__ === person</span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>所以实际上 <code>me = Object.create(person)</code> 就是将一个新的对象 <code>me</code> 的 <code>__proto__</code> 设置成 <code>person</code>。</p>
-<h3 id="总结">总结:</h3>
-<ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><ul>
 <li>me 是一个对象，person 也是一个对象，如果想要定义类函数，定义在 person 上面。</li>
 <li>me 和 person 都是不存在 prototype 属性，但他们都存在 constructor 为 Object（即 Object 构造函数）</li>
 <li><code>Object.create</code> 实际上就是在原型链上加上 <code>__proto__</code> 属性。</li>
 </ul>
-<h2>3.极简主义的实现</h2>
-<p>荷兰程序员 Gabor de Mooij 提出了一种比 Object.create() 更好的新方法，他称这种方法为&quot;极简主义法&quot;（minimalist approach）。</p>
-<h3 id="封装">封装</h3>
-<p>这种方法不使用this和prototype，代码部署起来非常简单，这大概也是它被叫做&quot;极简主义法&quot;的原因。</p>
-<p>首先，跟方法二一样，它也是用一个对象模拟&quot;类&quot;。在这个类里面，定义一个构造函数<code>createNew()</code>，用来生成实例。</p>
+<h2 id="3-极简主义的实现"><a href="#3-极简主义的实现" class="headerlink" title="3.极简主义的实现"></a>3.极简主义的实现</h2><p>荷兰程序员 Gabor de Mooij 提出了一种比 Object.create() 更好的新方法，他称这种方法为”极简主义法”（minimalist approach）。</p>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>这种方法不使用this和prototype，代码部署起来非常简单，这大概也是它被叫做”极简主义法”的原因。</p>
+<p>首先，跟方法二一样，它也是用一个对象模拟”类”。在这个类里面，定义一个构造函数<code>createNew()</code>，用来生成实例。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Cat = &#123;</span><br><span class="line">　　createNew: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="comment">// some code here</span></span><br><span class="line">　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>然后，在createNew()里面，定义一个实例对象，把这个实例对象作为返回值。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Cat = &#123;</span><br><span class="line">　　createNew: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> cat = &#123;&#125;;</span><br><span class="line">       cat.name = <span class="string">"大毛"</span>;</span><br><span class="line">       cat.makeSound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(<span class="string">"喵喵喵"</span>); &#125;;</span><br><span class="line">       <span class="keyword">return</span> cat;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>使用的时候，调用createNew()方法，就可以得到实例对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cat1 = Cat.createNew();</span><br><span class="line">cat1.makeSound(); <span class="comment">// 喵喵喵</span></span><br></pre></td></tr></table></figure>
-<p>这种方法的好处是，容易理解，结构清晰优雅，符合传统的&quot;面向对象编程&quot;的构造，因此可以方便地部署下面的特性。</p>
-<h3 id="继承">继承</h3>
-<p>让一个类继承另一个类，实现起来很方便。只要在前者的createNew()方法中，调用后者的createNew()方法即可。</p>
+<p>这种方法的好处是，容易理解，结构清晰优雅，符合传统的”面向对象编程”的构造，因此可以方便地部署下面的特性。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>让一个类继承另一个类，实现起来很方便。只要在前者的createNew()方法中，调用后者的createNew()方法即可。</p>
 <p>先定义一个Animal类。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Animal = &#123;</span><br><span class="line">　　createNew: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> animal = &#123;&#125;;</span><br><span class="line">　　　　animal.sleep = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(<span class="string">"睡懒觉"</span>); &#125;;</span><br><span class="line">　　　　<span class="keyword">return</span> animal;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>然后，在Cat的createNew()方法中，调用Animal的createNew()方法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Cat = &#123;</span><br><span class="line">　　createNew: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> cat = Animal.createNew();</span><br><span class="line">　　　　cat.name = <span class="string">"大毛"</span>;</span><br><span class="line">　　　　cat.makeSound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(<span class="string">"喵喵喵"</span>); &#125;;</span><br><span class="line">　　　　<span class="keyword">return</span> cat;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>这样得到的Cat实例，就会同时继承Cat类和Animal类。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cat1 = Cat.createNew();</span><br><span class="line">cat1.sleep(); <span class="comment">// 睡懒觉</span></span><br></pre></td></tr></table></figure>
-<h3 id="私有属性和私有方法">私有属性和私有方法</h3>
-<p>在createNew()方法中，只要不是定义在cat对象上的方法和属性，都是私有的。</p>
+<h3 id="私有属性和私有方法"><a href="#私有属性和私有方法" class="headerlink" title="私有属性和私有方法"></a>私有属性和私有方法</h3><p>在createNew()方法中，只要不是定义在cat对象上的方法和属性，都是私有的。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Cat = &#123;</span><br><span class="line">　　createNew: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> cat = &#123;&#125;;</span><br><span class="line">　　　　<span class="keyword">var</span> sound = <span class="string">"喵喵喵"</span>;</span><br><span class="line">　　　　cat.makeSound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(sound); &#125;;</span><br><span class="line">　　　　<span class="keyword">return</span> cat;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>上例的内部变量sound，外部无法读取，只有通过cat的公有方法makeSound()来读取。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cat1 = Cat.createNew();</span><br><span class="line">alert(cat1.sound); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-<h3 id="数据共享">数据共享</h3>
-<p>有时候，我们需要所有实例对象，能够读写同一项内部数据。这个时候，只要把这个内部数据，封装在类对象的里面、createNew()方法的外面即可。</p>
+<h3 id="数据共享"><a href="#数据共享" class="headerlink" title="数据共享"></a>数据共享</h3><p>有时候，我们需要所有实例对象，能够读写同一项内部数据。这个时候，只要把这个内部数据，封装在类对象的里面、createNew()方法的外面即可。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Cat = &#123;</span><br><span class="line">　　sound : <span class="string">"喵喵喵"</span>,</span><br><span class="line">　　createNew: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> cat = &#123;&#125;;</span><br><span class="line">　　　　cat.makeSound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(Cat.sound); &#125;;</span><br><span class="line">　　　　cat.changeSound = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123; Cat.sound = x; &#125;;</span><br><span class="line">　　　　<span class="keyword">return</span> cat;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>然后，生成两个实例对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cat1 = Cat.createNew();</span><br><span class="line"><span class="keyword">var</span> cat2 = Cat.createNew();</span><br><span class="line">cat1.makeSound(); <span class="comment">// 喵喵喵</span></span><br></pre></td></tr></table></figure>
 <p>这时，如果有一个实例对象，修改了共享的数据，另一个实例对象也会受到影响。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat2.changeSound(<span class="string">"啦啦啦"</span>);</span><br><span class="line">cat1.makeSound(); <span class="comment">// 啦啦啦</span></span><br></pre></td></tr></table></figure>
-<h1>Javascript 的继承的实现？</h1>
-<p>Javascript 的继承是通过原型链来实现的。</p>
+<h1 id="Javascript-的继承的实现？"><a href="#Javascript-的继承的实现？" class="headerlink" title="Javascript 的继承的实现？"></a>Javascript 的继承的实现？</h1><p>Javascript 的继承是通过原型链来实现的。</p>
 <p>总结：</p>
 <ul>
 <li><strong>定理1：每个对象都有 <strong>proto</strong> 属性，但只有函数对象才有 prototype 属性</strong></li>
 </ul>
-<h1>后记</h1>
-<p>因为成都的空气实在是太差了，所以这段时间搬到了青城山来居住。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>因为成都的空气实在是太差了，所以这段时间搬到了青城山来居住。</p>
 <p>身体还是常常不适，现在严重怀疑是神经官能症。（如果不是的话，那我也不知道是啥了。）</p>
-<p>半吊子如我又重新开始写代码了，这段时间除了给 Howard 那边的 <a href="http://keymesh.io/" target="_blank" rel="noopener">KeyMesh</a> 做运营、翻译白皮书、宣言以外，还在着手写 node.js 上的一个机器人的框架，基于 ccxt 的。</p>
+<p>半吊子如我又重新开始写代码了，这段时间除了给 Howard 那边的 <a href="http://keymesh.io/" target="_blank" rel="noopener">KeyMesh</a> 做运营、翻译白皮书、宣言以外，还在着手写 node.js 上的一个机器人的框架，基于 ccxt 的。 </p>
 <p>虽然我很菜，但是写代码很好玩呀，然后我打算要好好温习一下 Javascript 的基础知识，所以有了这篇文章。</p>
 <p>在 ES6 里，Javascript 可以用 Class 来写了，但是这样掩盖了其底层的实现方法，不太方便用户了解其更底层的原理。其次 Javascript 的原型链也曾经是一个很重要的概念。虽然 ES6 引入了很多的语法糖。但由于历史的原因，现在网络上还有大量的历史代码。所以了解一些底层原理是有利而无一害的。</p>
-<h2>参考</h2>
-<ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html" target="_blank" rel="noopener">Javscript 定义类的三种方法</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank" rel="noopener">Mozilla 上关于 Object.create 的介绍</a></li>
 <li><a href="https://www.jianshu.com/p/dee9f8b14771" target="_blank" rel="noopener">最详尽的 JS 原型与原型链终极详解</a></li>
@@ -662,7 +648,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -765,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Javascript 里面向对象的实现有哪几种方法？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">1.通过构造函数来实现面向对象的编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">2.通过 Object.create 方法来创造对象。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深入理解-object-create"><span class="nav-text">深入理解 Object.create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">3.极简主义的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有属性和私有方法"><span class="nav-text">私有属性和私有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据共享"><span class="nav-text">数据共享</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Javascript 的继承的实现？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">后记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript-里面向对象的实现有哪几种方法？"><span class="nav-text">Javascript 里面向对象的实现有哪几种方法？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-通过构造函数来实现面向对象的编程"><span class="nav-text">1.通过构造函数来实现面向对象的编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-通过-Object-create-方法来创造对象。"><span class="nav-text">2.通过 Object.create 方法来创造对象。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深入理解-Object-create"><span class="nav-text">深入理解 Object.create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-极简主义的实现"><span class="nav-text">3.极简主义的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有属性和私有方法"><span class="nav-text">私有属性和私有方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据共享"><span class="nav-text">数据共享</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript-的继承的实现？"><span class="nav-text">Javascript 的继承的实现？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-text">后记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -921,7 +907,7 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://wild-flame.github.io/object_in_javascript/';
+        this.page.url = 'https://wildflame.me/object_in_javascript/';
         this.page.identifier = 'object_in_javascript/';
         this.page.title = 'Javascript 里的面向对象编程';
         };
