@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -61,16 +68,16 @@
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.3.0" color="#222">
 
 
 
@@ -122,7 +129,7 @@
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/a490147fjw1f4w4a1jmg5j20g00klaam.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/a490147fjw1f4w4aew3srj20df0gz3yt.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/a490147fjw1f4w4aq64lpj208r0e6mxc.jpg">
-<meta property="og:updated_time" content="2018-10-27T10:19:09.000Z">
+<meta property="og:updated_time" content="2018-11-19T05:00:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="［译］假如 Mac 上也有 iOS 应用？">
 <meta name="twitter:description" content="”Back to the mac“ 是苹果在2010年的一项活动，那次发布了Mac OS X Lion，并且介绍了苹果如何期望把 Mac 平台和 iOS 平台统一起来。本文在图片里的标题也是 “Back to the mac”，这篇文章暗示了苹果要统一 watchOS, iOS, tvOS 和 macOS">
@@ -362,7 +369,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-27 18:19:09" itemprop="dateModified" datetime="2018-10-27T18:19:09+08:00">2018-10-27</time>
+                <time title="Modified: 2018-11-19 13:00:12" itemprop="dateModified" datetime="2018-11-19T13:00:12+08:00">2018-11-19</time>
               
             
           </span>
@@ -436,6 +443,7 @@
 </ul>
 </blockquote>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*o5AUFxXTmRcAr17x1p6m6A.jpeg" alt=""></p>
+<a id="more"></a>
 <h3 id="假如-Mac-上也有-iOS-应用，世界将会怎样？"><a href="#假如-Mac-上也有-iOS-应用，世界将会怎样？" class="headerlink" title="假如 Mac 上也有 iOS 应用，世界将会怎样？"></a>假如 Mac 上也有 iOS 应用，世界将会怎样？</h3><p>没有人专门为 Mac 开发应用，Slack 有专门的 iOS 版本，放在 iPad 上的体验非常好，接上 smart keyboard 以后，你会发现还可以方便的使用快捷键。而且，在应用上无限下滑的体验甚至超过了他们本身的网页端，甚至于我从来没有看到过一个“加载中”的页面。这体验如果能够放到桌面端那是再好不过了，但是他们没有这么做，他们仅仅只是把他们的网页放到了一个 app-launcher 里，这就成了桌面端。</p>
 <p>Basecamp 是这么做的，Wordpress 是这么做的，甚至连 Mac App Store 自己，都只是一个 webview 而已。</p>
 <p>对于那些所谓的“应用”，我是再讨厌不过了。我理解大公司的选择，他们<strong>不喜欢</strong>跨平台。设计师们需要专门做设计，QA 需要测试更多的环境，而文职人员们则要费力去翻译那些“原生视图”到更为工业界接受的“页面视图”。那些大公司一直不愿意费力气去替代跨平台的 Html 5 应用也毫不奇怪了。</p>
@@ -507,35 +515,6 @@
 
     
 
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>赞赏</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Up</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/reward/alipay.jpg" alt="David Lin Alipay">
-        <p>Alipay</p>
-      </div>
-    
-
-    
-      <div id="bitcoin" style="display: inline-block">
-        <img id="bitcoin_qr" src="/images/reward/bitcoin.jpg" alt="David Lin Eth">
-        <p>Eth</p>
-      </div>
-    
-
-  </div>
-</div>
-
-      </div>
     
 
     
@@ -711,7 +690,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>

@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -61,16 +68,16 @@
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.3.0" color="#222">
 
 
 
@@ -108,18 +115,18 @@
 
 
 
-  <meta name="description" content="之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3">
+  <meta name="description" content="之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3等。">
 <meta name="keywords" content="tech">
 <meta property="og:type" content="article">
 <meta property="og:title" content="［Python］ubuntu 12.04下面安装影像处理的库PIL的安装, Pygame的安装，以及一些实用的资料整理">
 <meta property="og:url" content="https://wildflame.me/how_to_install_PIL_for_python_under_ubuntu_12.04/index.html">
 <meta property="og:site_name" content="wildflame">
-<meta property="og:description" content="之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3">
+<meta property="og:description" content="之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3等。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-27T10:19:09.000Z">
+<meta property="og:updated_time" content="2018-11-19T05:06:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="［Python］ubuntu 12.04下面安装影像处理的库PIL的安装, Pygame的安装，以及一些实用的资料整理">
-<meta name="twitter:description" content="之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3">
+<meta name="twitter:description" content="之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3等。">
 
 
 
@@ -355,7 +362,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-27 18:19:09" itemprop="dateModified" datetime="2018-10-27T18:19:09+08:00">2018-10-27</time>
+                <time title="Modified: 2018-11-19 13:06:29" itemprop="dateModified" datetime="2018-11-19T13:06:29+08:00">2018-11-19</time>
               
             
           </span>
@@ -403,8 +410,6 @@
           
 
           
-              <div class="post-description">之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3</div>
-          
 
         </div>
       </header>
@@ -421,6 +426,7 @@
       
         <!--下面是正文-->
 <p>之前做影像处理都是用的Matlab,这次打算用Python来做，因此要在Python上面安装PIL（PYTHON IMAGE LIBRARY)，安装的环境是ubuntu12.04, Python 2.7.3, GCC 4.6.3等。</p>
+<a id="more"></a>
 <h2 id="1-Install-PIL"><a href="#1-Install-PIL" class="headerlink" title="1.Install PIL"></a>1.Install PIL</h2><pre><code>$ sudo apt-get install python-imaging
 $ sudo apt-get install libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev
 </code></pre><p>然后：</p>
@@ -481,35 +487,6 @@ In file included from libImaging/Imaging.h:14,from _imaging.c:77:
 
     
 
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>赞赏</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Up</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/reward/alipay.jpg" alt="David Lin Alipay">
-        <p>Alipay</p>
-      </div>
-    
-
-    
-      <div id="bitcoin" style="display: inline-block">
-        <img id="bitcoin_qr" src="/images/reward/bitcoin.jpg" alt="David Lin Eth">
-        <p>Eth</p>
-      </div>
-    
-
-  </div>
-</div>
-
-      </div>
     
 
     
@@ -685,7 +662,13 @@ In file included from libImaging/Imaging.h:14,from _imaging.c:77:
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>

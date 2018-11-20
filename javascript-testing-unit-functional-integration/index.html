@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -61,16 +68,16 @@
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.3.0" color="#222">
 
 
 
@@ -117,7 +124,7 @@
 <meta property="og:description" content="是不是一直搞不清楚单元(Unit)测试，功能(Functional)测试和集成(Integration)测试的区别？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2016/04/1461566883dev-console-animated-small.gif">
-<meta property="og:updated_time" content="2018-10-27T10:19:09.000Z">
+<meta property="og:updated_time" content="2018-11-19T04:58:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="［译］JavaScript 测试︰ 单元 vs 功能 vs 集成测试">
 <meta name="twitter:description" content="是不是一直搞不清楚单元(Unit)测试，功能(Functional)测试和集成(Integration)测试的区别？">
@@ -357,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-27 18:19:09" itemprop="dateModified" datetime="2018-10-27T18:19:09+08:00">2018-10-27</time>
+                <time title="Modified: 2018-11-19 12:58:06" itemprop="dateModified" datetime="2018-11-19T12:58:06+08:00">2018-11-19</time>
               
             
           </span>
@@ -432,6 +439,7 @@
 </blockquote>
 <p>单元测试、集成测试、功能测试这些自动化测试方法，是项目持续部署的基础。作为一种研发方式，它能帮助你在短时间内安全的发布新特性，而不用等上几个月甚至几年。</p>
 <p>自动测试通过捕捉更多的错误，增强了软件到达用户之前的稳定性。就好比是一张防护网一样，使开发者们在做更改的时候不必担心引发未知的错误。</p>
+<a id="more"></a>
 <h2 id="忽略测试的代价"><a href="#忽略测试的代价" class="headerlink" title="忽略测试的代价"></a>忽略测试的代价</h2><p>与直觉相反，维护一个高质量的测试套件能够极大地提高开发人员的效率，因为它使得开发人员能够立即发现开发中的错误。反过来说，如果没有这些套件，终端用户会遇到更多的 Bug，从而导致需要在用户服务，质量保证和错误报告上面投入更多的资源。</p>
 <p>测试驱动开发（TDD）在前期需要更多的时间，但是一旦 Bug 到了用户那里，你会付出更多的代价：</p>
 <ul>
@@ -626,35 +634,6 @@ test(&apos;logger/route integration&apos;, assert =&gt; {
     
 
     
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>赞赏</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Up</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/reward/alipay.jpg" alt="David Lin Alipay">
-        <p>Alipay</p>
-      </div>
-    
-
-    
-      <div id="bitcoin" style="display: inline-block">
-        <img id="bitcoin_qr" src="/images/reward/bitcoin.jpg" alt="David Lin Eth">
-        <p>Eth</p>
-      </div>
-    
-
-  </div>
-</div>
-
-      </div>
-    
 
     
 
@@ -829,7 +808,13 @@ test(&apos;logger/route integration&apos;, assert =&gt; {
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>

@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -61,16 +68,16 @@
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.3.0" color="#222">
 
 
 
@@ -116,7 +123,7 @@
 <meta property="og:site_name" content="wildflame">
 <meta property="og:description" content="linux下安装Ruby有很多方法，不过这里推荐一种使用用 RVM (Ruby Version Manage) 来安装的方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-27T10:19:09.000Z">
+<meta property="og:updated_time" content="2018-11-19T05:07:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="［Ruby］Ubuntu(12.04)下Ruby的安装与配置">
 <meta name="twitter:description" content="linux下安装Ruby有很多方法，不过这里推荐一种使用用 RVM (Ruby Version Manage) 来安装的方法。">
@@ -355,7 +362,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-27 18:19:09" itemprop="dateModified" datetime="2018-10-27T18:19:09+08:00">2018-10-27</time>
+                <time title="Modified: 2018-11-19 13:07:49" itemprop="dateModified" datetime="2018-11-19T13:07:49+08:00">2018-11-19</time>
               
             
           </span>
@@ -423,7 +430,8 @@
 <p>可能您已经使用过apt安装RVM，或者用ubuntu软件中心，不过为了避免以后出现莫名奇妙的错误，最好还是自己重新安装一下。因此首先清除可能已经的安装好的RVM管理器。</p>
 <pre><code>$ sudo apt-get --purge remove ruby-rvm 
 $ sudo rm -rf /usr/share/ruby-rvm /etc/rvmrc /etc/profile.d/rvm.sh 
-</code></pre><p>之后重新启动终端并检查环境变量（关于环境变量，）：</p>
+</code></pre><a id="more"></a>
+<p>之后重新启动终端并检查环境变量（关于环境变量，）：</p>
 <p>如果有显示，试一试重新开启终端（Terminal），如果仍有可以尝试重启计算机。</p>
 <p>安装 RVM:</p>
 <pre><code>$ t.rvm.io | bash -s -- --auto-dotfiles 
@@ -463,35 +471,6 @@ $ rvm install 1.9.2
 
     
 
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>赞赏</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Up</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/reward/alipay.jpg" alt="David Lin Alipay">
-        <p>Alipay</p>
-      </div>
-    
-
-    
-      <div id="bitcoin" style="display: inline-block">
-        <img id="bitcoin_qr" src="/images/reward/bitcoin.jpg" alt="David Lin Eth">
-        <p>Eth</p>
-      </div>
-    
-
-  </div>
-</div>
-
-      </div>
     
 
     
@@ -658,7 +637,13 @@ $ rvm install 1.9.2
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
