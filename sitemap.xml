@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wildflame.me/React_The_Virtual_DOM/</loc>
+    
+    <lastmod>2018-11-21T09:39:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wildflame.me/object_in_javascript/</loc>
     
     <lastmod>2018-11-19T06:28:12.000Z</lastmod>
@@ -156,28 +163,7 @@
   </url>
   
   <url>
-    <loc>https://wildflame.me/react_the_virtual_DOM/</loc>
-    
-    <lastmod>2018-11-19T04:28:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wildflame.me/Reversible_Date_Embedding/</loc>
-    
-    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wildflame.me/When_Dream_Start/</loc>
-    
-    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wildflame.me/InTaiwan/</loc>
+    <loc>https://wildflame.me/the-first-letter-to-friend-after-leukemia/</loc>
     
     <lastmod>2018-10-27T10:19:09.000Z</lastmod>
     
@@ -191,14 +177,7 @@
   </url>
   
   <url>
-    <loc>https://wildflame.me/the-first-letter-to-friend-after-leukemia/</loc>
-    
-    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wildflame.me/to-myfriends/</loc>
+    <loc>https://wildflame.me/Beautiful_Taiwan/</loc>
     
     <lastmod>2018-10-27T10:19:09.000Z</lastmod>
     
@@ -219,7 +198,28 @@
   </url>
   
   <url>
-    <loc>https://wildflame.me/Beautiful_Taiwan/</loc>
+    <loc>https://wildflame.me/When_Dream_Start/</loc>
+    
+    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildflame.me/to-myfriends/</loc>
+    
+    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildflame.me/InTaiwan/</loc>
+    
+    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wildflame.me/Reversible_Date_Embedding/</loc>
     
     <lastmod>2018-10-27T10:19:09.000Z</lastmod>
     
