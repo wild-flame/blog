@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wild-flame.github.io/hci/</loc>
+    <loc>https://wild-flame.github.io/bureaucratic-sabotage/</loc>
     
-    <lastmod>2018-12-04T04:39:03.000Z</lastmod>
+    <lastmod>2018-12-07T03:29:51.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/two_months_in_san_li_tun/</loc>
+    <loc>https://wild-flame.github.io/our-country/</loc>
     
-    <lastmod>2018-12-03T02:57:27.000Z</lastmod>
+    <lastmod>2018-12-07T03:29:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wild-flame.github.io/when_breath_becomes_air/</loc>
+    
+    <lastmod>2018-12-06T02:56:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wild-flame.github.io/hci/</loc>
+    
+    <lastmod>2018-12-04T04:39:03.000Z</lastmod>
     
   </url>
   
@@ -30,14 +44,7 @@
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/our-country/</loc>
-    
-    <lastmod>2018-12-01T07:39:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wild-flame.github.io/spring-festival/</loc>
+    <loc>https://wild-flame.github.io/beyond-death/</loc>
     
     <lastmod>2018-12-01T07:39:12.000Z</lastmod>
     
@@ -51,7 +58,7 @@
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/beyond-death/</loc>
+    <loc>https://wild-flame.github.io/true-heroism/</loc>
     
     <lastmod>2018-12-01T07:39:12.000Z</lastmod>
     
@@ -65,14 +72,14 @@
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/true-heroism/</loc>
+    <loc>https://wild-flame.github.io/InTaiwan/</loc>
     
     <lastmod>2018-12-01T07:39:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/InTaiwan/</loc>
+    <loc>https://wild-flame.github.io/spring-festival/</loc>
     
     <lastmod>2018-12-01T07:39:12.000Z</lastmod>
     
@@ -142,13 +149,6 @@
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/bureaucratic-sabotage/</loc>
-    
-    <lastmod>2018-11-19T05:02:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wild-flame.github.io/Comparing_React_to_Vue_for_dynamic_tabular_data/</loc>
     
     <lastmod>2018-11-19T05:00:48.000Z</lastmod>
@@ -184,20 +184,6 @@
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/When_Dream_Start/</loc>
-    
-    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wild-flame.github.io/about-ze-xi/</loc>
-    
-    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://wild-flame.github.io/the-first-letter-to-friend-after-leukemia/</loc>
     
     <lastmod>2018-10-27T10:19:09.000Z</lastmod>
@@ -219,14 +205,28 @@
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/Reversible_Date_Embedding/</loc>
+    <loc>https://wild-flame.github.io/back_to_china/</loc>
     
     <lastmod>2018-10-27T10:19:09.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wild-flame.github.io/back_to_china/</loc>
+    <loc>https://wild-flame.github.io/about-ze-xi/</loc>
+    
+    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wild-flame.github.io/When_Dream_Start/</loc>
+    
+    <lastmod>2018-10-27T10:19:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wild-flame.github.io/Reversible_Date_Embedding/</loc>
     
     <lastmod>2018-10-27T10:19:09.000Z</lastmod>
     
