@@ -97,7 +97,7 @@
     root: '/blog/',
     scheme: 'Muse',
     version: '6.3.0',
-    sidebar: {"display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -383,7 +383,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/the-first-letter-to-friend-after-leukemia/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/blog/the-first-letter-to-friend-after-leukemia/" itemprop="commentCount"></span>
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="the-first-letter-to-friend-after-leukemia/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -536,7 +537,14 @@
 
   
     <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     </div>
+
   
 
 
@@ -836,6 +844,31 @@
 
   
 
+  
+    <script id="dsq-count-scr" src="https://wildflame.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://wild-flame.github.io/the-first-letter-to-friend-after-leukemia/';
+        this.page.identifier = 'the-first-letter-to-friend-after-leukemia/';
+        this.page.title = '给朋友们的第一封信';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://wildflame.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
 
 
 	
@@ -850,38 +883,10 @@
 
 
 
-  
 
 
 
 
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'uzQfbC0rBFhTRKDnp8nEXPYm-gzGzoHsz',
-        appKey: 'GxcHPRg5ctsyNpWgJlqkCn9d',
-        placeholder: '人生苦短 思念尤长 ~ Carpe diem & Seize the day ~',
-        avatar:'robohash',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
 
 
 

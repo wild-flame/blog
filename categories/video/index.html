@@ -97,7 +97,7 @@
     root: '/blog/',
     scheme: 'Muse',
     version: '6.3.0',
-    sidebar: {"display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -645,6 +645,14 @@
 
   
 
+  
+    <script id="dsq-count-scr" src="https://wildflame.disqus.com/count.js" async></script>
+  
+
+  
+
+
+
 
 
 	
@@ -659,38 +667,10 @@
 
 
 
-  
 
 
 
 
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'uzQfbC0rBFhTRKDnp8nEXPYm-gzGzoHsz',
-        appKey: 'GxcHPRg5ctsyNpWgJlqkCn9d',
-        placeholder: '人生苦短 思念尤长 ~ Carpe diem & Seize the day ~',
-        avatar:'robohash',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
 
 
 

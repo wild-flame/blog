@@ -97,7 +97,7 @@
     root: '/blog/',
     scheme: 'Muse',
     version: '6.3.0',
-    sidebar: {"display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -383,7 +383,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/Beautiful_Taiwan/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/blog/Beautiful_Taiwan/" itemprop="commentCount"></span>
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Beautiful_Taiwan/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -628,7 +629,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/Reversible_Date_Embedding/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/blog/Reversible_Date_Embedding/" itemprop="commentCount"></span>
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Reversible_Date_Embedding/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -805,7 +807,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/InTaiwan/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/blog/InTaiwan/" itemprop="commentCount"></span>
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="InTaiwan/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1048,7 +1051,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/how_to_make_ubuntu_to_use_two_monitor_to_display/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/blog/how_to_make_ubuntu_to_use_two_monitor_to_display/" itemprop="commentCount"></span>
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="how_to_make_ubuntu_to_use_two_monitor_to_display/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1231,7 +1235,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/ubuntu_ruby_environment/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/blog/ubuntu_ruby_environment/" itemprop="commentCount"></span>
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="ubuntu_ruby_environment/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1416,7 +1421,8 @@ $ sudo rm -rf /usr/share/ruby-rvm /etc/rvmrc /etc/profile.d/rvm.sh
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/blog/to-myfriends/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/blog/to-myfriends/" itemprop="commentCount"></span>
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="to-myfriends/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1818,6 +1824,14 @@ $ sudo rm -rf /usr/share/ruby-rvm /etc/rvmrc /etc/profile.d/rvm.sh
 
   
 
+  
+    <script id="dsq-count-scr" src="https://wildflame.disqus.com/count.js" async></script>
+  
+
+  
+
+
+
 
 
 	
@@ -1832,38 +1846,10 @@ $ sudo rm -rf /usr/share/ruby-rvm /etc/rvmrc /etc/profile.d/rvm.sh
 
 
 
-  
 
 
 
 
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'uzQfbC0rBFhTRKDnp8nEXPYm-gzGzoHsz',
-        appKey: 'GxcHPRg5ctsyNpWgJlqkCn9d',
-        placeholder: '人生苦短 思念尤长 ~ Carpe diem & Seize the day ~',
-        avatar:'robohash',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
 
 
 
