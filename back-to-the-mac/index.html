@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next muse use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -203,7 +203,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -211,7 +211,7 @@
   <div class="container  page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -309,20 +309,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wild-flame.github.io/blog/back-to-the-mac/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="David Lin">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="wildflame">
     </span>
 
@@ -374,7 +374,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/blog/categories/translations/" itemprop="url" rel="index"><span itemprop="name">translations</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/categories/translations/" itemprop="url" rel="index"><span itemprop="name">translations</span></a></span>
 
                 
                 
@@ -441,7 +441,7 @@
 <li>校对者: <a href="https://github.com/thanksdanny" target="_blank" rel="noopener">thanksdanny</a>,<a href="https://github.com/owenlyn" target="_blank" rel="noopener">owenlyn</a></li>
 </ul>
 </blockquote>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*o5AUFxXTmRcAr17x1p6m6A.jpeg" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*o5AUFxXTmRcAr17x1p6m6A.jpeg" alt></p>
 <a id="more"></a>
 <h3 id="假如-Mac-上也有-iOS-应用，世界将会怎样？"><a href="#假如-Mac-上也有-iOS-应用，世界将会怎样？" class="headerlink" title="假如 Mac 上也有 iOS 应用，世界将会怎样？"></a>假如 Mac 上也有 iOS 应用，世界将会怎样？</h3><p>没有人专门为 Mac 开发应用，Slack 有专门的 iOS 版本，放在 iPad 上的体验非常好，接上 smart keyboard 以后，你会发现还可以方便的使用快捷键。而且，在应用上无限下滑的体验甚至超过了他们本身的网页端，甚至于我从来没有看到过一个“加载中”的页面。这体验如果能够放到桌面端那是再好不过了，但是他们没有这么做，他们仅仅只是把他们的网页放到了一个 app-launcher 里，这就成了桌面端。</p>
 <p>Basecamp 是这么做的，Wordpress 是这么做的，甚至连 Mac App Store 自己，都只是一个 webview 而已。</p>
@@ -458,7 +458,7 @@
 <p>我就直说了：直接把 iOS 应用移植到 OS X 的体验是超级差的，你需要重新设计触摸屏的交互来适应键盘和鼠标的交互。当然也有一些例外，一部分领域的应用是不需要这么做的：假设你请 Pinterest 重新设计他们全是图的界面，他们只需要耸耸肩，然后把整个网站放在一个 webview 里就行了。</p>
 <h3 id="iOS-和-OS-X-的不同之处"><a href="#iOS-和-OS-X-的不同之处" class="headerlink" title="iOS 和 OS X 的不同之处"></a>iOS 和 OS X 的不同之处</h3><p>尽管 OS X 和 iOS 共享了相当一部分的底层接口，然而他们在 UI 层面是完全不同的。前者是建立在 Appkit 的基础上的，其历史可以追溯到 NeXT。而后者则采用了 UIKit，那是从 iPhone 的最底层开始写的。</p>
 <p>二者甚至连坐标系统都是不一样的，在 OS X 上坐标点在左下方，而 iOS 上面则到了在左上方。</p>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*SJU8WmP-aHgrwlT92oCRAw.jpeg" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*SJU8WmP-aHgrwlT92oCRAw.jpeg" alt></p>
 <p>不仅是这样，UIKit 专门为 GPU 设计了渲染加速，每一个 <em>UIView</em> 都有一个核心的动画层（layer）作支持，与 GPU 一同提供了流畅的滑动体验。</p>
 <p>但大概是为了支持比较早的版本，这层 layer 到了 Mac 上就变成非必须的了，甚至就算你启用了这个动画层，你也会感觉到他们也是建立在 <em>NSView</em> 上面的。</p>
 <p>当然也存在一些重新实现 UIKit 的的库，比如 <a href="https://github.com/twitter/twui" target="_blank" rel="noopener">TwUI</a> 和 <a href="http://chameleonproject.org" target="_blank" rel="noopener">Chameleon</a>，后者意在寻求相同的 API。理论上，你可以在不同的平台上共享 100% 的 UI 代码。但实际上，这些框架是往往是费力不讨好的，因为他们都是第三方的。</p>
@@ -482,18 +482,18 @@
 <p>鉴于此，如果想要在 iOS 和 Mac 之间移植，情况也是类似的。如果苹果能使 Mac 和 iOS 的用户体验更相似一些，你很可能可以把 Mac 和 iOS 应用放在同一个包里。</p>
 <p>对于开发者而言，一个应用意味着一份 Bundle ID，这使得共享不同设备之间的信息变得更简单。这所有一切的目的，都是为了简化在新平台 (macOS) 上开发与iOS 应用相应的(桌面)应用的流程”</p>
 <p>那需要下载的文件的大小呢？一边是运行在 x86上面的，另外一边是运行在 ARM 上的，所以需要把两个不同的架构编译到同一个二进制源码里面，类似于Mac 开始采用 intel 的时候的方案 <a href="https://en.wikipedia.org/wiki/Universal_binary" target="_blank" rel="noopener">fat binaries</a>。不过，iOS9里，Apple 引进了<a href="https://developer.apple.com/library/tvos/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html" target="_blank" rel="noopener">App Thinning</a>, 所以你只用下载你所需要的平台上的源代码就可以了。</p>
-<p><img src="http://ww3.sinaimg.cn/large/a490147fjw1f4w49p8mtcj20m80ck75n.jpg" alt=""></p>
+<p><img src="http://ww3.sinaimg.cn/large/a490147fjw1f4w49p8mtcj20m80ck75n.jpg" alt></p>
 <h4 id="界面惯例"><a href="#界面惯例" class="headerlink" title="界面惯例"></a>界面惯例</h4><p>在 iOS8里，苹果加上了“trait collection”和一些别的属性，允许你查看平台的细节。现在的<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDevice_Class/index.html#//apple_ref/c/tdef/UIUserInterfaceIdiom" target="_blank" rel="noopener">Interface Idiom</a> 属性包括了 <strong>iPhone</strong>, <strong>iPad</strong>, <strong>TV</strong>, or <strong>CarPlay</strong>。你可以查看这些惯例，看那些视图是可用的，比方说 popover 就只在 iPad 上有。</p>
 <p>理论上，你可以限制一些 Mac 的特性，使其符合 <strong>Mac</strong> 惯例，比如浮动调色盘。</p>
 <h4 id="沙箱"><a href="#沙箱" class="headerlink" title="沙箱"></a>沙箱</h4><p>2011年苹果添加了 <a href="https://developer.apple.com/library/mac/documentation/Security/Conceptual/AppSandboxDesignGuide/AboutAppSandbox/AboutAppSandbox.html" target="_blank" rel="noopener">sandboxing</a> 到 OS X 里。理论上，你“可以”通过这个功能移植 iOS 应用到 OS X上面。</p>
 <h4 id="解决更大的屏幕和页面"><a href="#解决更大的屏幕和页面" class="headerlink" title="解决更大的屏幕和页面"></a>解决更大的屏幕和页面</h4><p>那坐标系统呢？—— 如果你使用自动布局，就不用担心了。别的情况，你可以用相对布局来取代那些写死的坐标，就好比是 CSS 一样，其实并不是很复杂。</p>
 <p>下面的这个<a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853-CH7-SW1" target="_blank" rel="noopener">例子</a>里，每一条蓝色的线都是一个规则，只要这些规则是有意义的，自动布局就会帮你处理剩下的问题。</p>
-<p><img src="http://ww4.sinaimg.cn/large/a490147fjw1f4w4a1jmg5j20g00klaam.jpg" alt=""></p>
+<p><img src="http://ww4.sinaimg.cn/large/a490147fjw1f4w4a1jmg5j20g00klaam.jpg" alt></p>
 <p>再也没有（0，0）点了，你可以毫无顾忌的改变窗口的大小。</p>
 <p>不幸的是，很多应用都写死了坐标值。除了 UIKIt 以外， Apple 都要抛弃掉坐标系统了。如果你把它和 Appkit 应用链接到一块的话，你就得到了已有的坐标系统，而指望在同一个应用里统一 Appkit 和 UIKit 的坐标系只会把一切弄得一团糟。</p>
 <h4 id="避免写出巨大尺寸的-iPhone-应用"><a href="#避免写出巨大尺寸的-iPhone-应用" class="headerlink" title="避免写出巨大尺寸的 iPhone 应用"></a>避免写出巨大尺寸的 iPhone 应用</h4><p>那那些可憎的拉伸的 iPhone 应用呢？他们已经在用 <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/LayoutandAppearance.html" target="_blank" rel="noopener">Size Classes</a> 来解决这个问题了，它鼓励你考虑屏幕资源来设计，而不是考虑硬件资源。它的每一个维度可以是“紧凑的”或是“普通的”。比方说，iPhone 的宽度是“紧凑的”，而全屏的 iPad 应用的宽度则是“普通的”。</p>
-<p><img src="http://ww2.sinaimg.cn/large/a490147fjw1f4w4aew3srj20df0gz3yt.jpg" alt=""></p>
-<p><img src="http://ww2.sinaimg.cn/large/a490147fjw1f4w4aq64lpj208r0e6mxc.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/large/a490147fjw1f4w4aew3srj20df0gz3yt.jpg" alt></p>
+<p><img src="http://ww2.sinaimg.cn/large/a490147fjw1f4w4aq64lpj208r0e6mxc.jpg" alt></p>
 <p>比方说你正在使用 Facebook，你希望在屏幕的一边能够一直看到更新的话题，而你的屏幕上还空了一大块。你可以把它设定成“普通的”宽度。那为什么要这么大费周章，而不是简简单单的看一下这是不是一台iPad呢？这是因为只需要把应用从“普通的”宽度切换到“紧凑的”宽度，就可以让用户方便的开启多任务模式了。</p>
 <p>Mac 也可以做类似的事情，当窗口小于一定阙值以后，就可以改变窗口的类型。</p>
 <h3 id="越早实现越好"><a href="#越早实现越好" class="headerlink" title="越早实现越好"></a>越早实现越好</h3><p>这五年来，每一次 WWDC，我都在想，“是时候了。”，对于此，我的 Outlook（日程表）已经从“渴望的事情”到了“无可避免了”。</p>
@@ -633,7 +633,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">David Lin</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -646,7 +646,7 @@
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
